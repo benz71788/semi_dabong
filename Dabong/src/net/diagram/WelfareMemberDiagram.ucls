@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="net.user.member.action.WRDeleteProcessAction" project="Dabong" 
+    file="/Dabong/src/net/user/member/action/WRDeleteProcessAction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="378" x="295" y="57"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="net.user.member.action.WRInfoAction" project="Dabong" 
+    file="/Dabong/src/net/user/member/action/WRInfoAction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="378" x="713" y="57"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="net.user.member.action.WRUpdateAction" project="Dabong" 
+    file="/Dabong/src/net/user/member/action/WRUpdateAction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="378" x="1131" y="57"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="net.user.member.action.WRJoinProcessAction" project="Dabong" 
+    file="/Dabong/src/net/user/member/action/WRJoinProcessAction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="378" x="1549" y="57"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="net.user.member.action.WRLoginProcessAction" project="Dabong" 
+    file="/Dabong/src/net/user/member/action/WRLoginProcessAction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="378" x="1967" y="57"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="net.user.member.action.WRLogoutAction" project="Dabong" 
+    file="/Dabong/src/net/user/member/action/WRLogoutAction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="378" x="2385" y="57"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="net.user.member.action.WRListAction" project="Dabong" 
+    file="/Dabong/src/net/user/member/action/WRListAction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="378" x="2803" y="57"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="net.user.member.action.WRUpdateProcessAction" project="Dabong" 
+    file="/Dabong/src/net/user/member/action/WRUpdateProcessAction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="378" x="3221" y="57"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="net.user.member.db.WRMemberVO" project="Dabong" 
+    file="/Dabong/src/net/user/member/db/WRMemberVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1268" y="799"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="net.user.member.db.WRMemberDAO" project="Dabong" 
+    file="/Dabong/src/net/user/member/db/WRMemberDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1499" y="493"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

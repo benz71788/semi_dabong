@@ -1,0 +1,21 @@
+@charset "UTF-8";
+.title{
+	background-color:rgb(30,144,255); 
+	height:30px; 
+	}
+textarea{
+	width:100%;
+}
+td:nth-child(1){width:15%;    background-color: #f1f1f1;}
+#vname{
+	width:100%;
+}
+#vbsub{
+	width:100%;
+}
+#vpass{
+	width:100%;
+}
+#vid{
+	width:100%;
+}
