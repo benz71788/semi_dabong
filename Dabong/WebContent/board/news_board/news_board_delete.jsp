@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <title>정보마당 글 삭제</title>
-<link href="./css_kh/modify.css" rel="stylesheet" type="text/css">
+<link href="./css/css_kh/modify.css" rel="stylesheet" type="text/css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <%@ include file="../../header/Header.jsp" %>

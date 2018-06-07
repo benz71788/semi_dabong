@@ -63,6 +63,52 @@ public class VTMatchDAO {
 		return result;
 	}
 	
+	public int processState(int boardNum, String responseMb) {
+		int result = 0;
+		try {
+			con = ds.getConnection();
+			String sql = "select MATCHING from VT_MATCH "
+					+ "where BOARDNUM = ? and RESPONSEMB = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, boardNum);
+			pstmt.setString(2, responseMb);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				if(rs.getString("MATCHING").equals("매칭완료")) {
+					result = 1;
+				}
+			}
+			return result;
+			
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+	
 	public String stateBtn(VTMatchVO matchVO) {
 		String matchText = "";
 		String sql = "";

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <link href="./css_sm/form.css" rel="stylesheet">
+    <link href="./css/css_sm/form.css" rel="stylesheet">
 <%@ include file="../../header/Header.jsp" %>
 <form action="./NTBoardAddAction.nt" method="post"
 	enctype="multipart/form-data" name="boardform">

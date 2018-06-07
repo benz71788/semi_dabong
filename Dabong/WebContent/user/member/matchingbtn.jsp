@@ -59,6 +59,18 @@
 				<td style="text-align:center">
 				<input style="border:1; background:white; color:#5D5D5D; height:29px; line-height: 28px; width:54px;" type="button" value="완료" id="suc">
 				</td>
-			</c:if>	
+			</c:if>\
+	
+	
+				<c:if test="${ b.wbvisit == 0}">
+				<td style="text-align:center">
+				<input style="background:#5D5D5D; color:white; border:1; height:29px; line-height: 28px; width:54px;" type="button" value="진행중" onclick="location.href='./wboardDetailAction.wb?num=${b.wbnum}'">
+				</td>
+				</c:if>
+				<c:if test="${ b.wbvisit !=0}">
+				<td style="text-align:center">
+				<input style="border:1; background:white; color:#5D5D5D; height:29px; line-height: 28px; width:54px;" type="button" value="완료" id="suc">
+				</td>	
+				</c:if>
 </body>
 </html>

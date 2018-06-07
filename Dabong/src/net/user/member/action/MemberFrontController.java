@@ -246,6 +246,20 @@ public class MemberFrontController extends HttpServlet {
     		} catch(Exception e) {
     			e.printStackTrace();
     		}
+    	} else if(command.equals("/vtProcessState.net")) {
+    		action = new VTProcessStateAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/wrProcessState.net")) {
+    		action = new WRProcessStateAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
     	}
     	
     	if(forward != null) {

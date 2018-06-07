@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>정보마당 글 수정</title>
-<link href="./css_kh/modify.css" rel="stylesheet" type="text/css">
+<link href="./css/css_kh/modify.css" rel="stylesheet" type="text/css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	$(document).ready(function(){

@@ -12,6 +12,8 @@
 		if('${sessionScope.id}' == ""){
 			location.href="login.net";
 		}
+		
+		$('.processState').trigger("click");
 	
 		$("#show").click(function() {
 			$(".page").toggle();
@@ -57,6 +59,24 @@
 			
 		});
 	});
+	
+	function processMethod(boardnum, responsemb){
+		var sendData = 'boardNum=' + boardnum 
+				+ "&" + 'responseMB=' + responsemb;
+		var processState = '.probtn' + boardnum;
+		$.ajax({
+			type:"POST",
+			data: sendData,
+			url: 'vtProcessState.net',
+			success: function(result){
+				if(result == 1){
+					$(processState).css('background-color', 'grey');
+					$(processState).val('완료');
+				}
+				
+			}
+		})
+	}
 </script>
 </head>
 <body>
@@ -210,16 +230,9 @@
 					<div>${b.vbreadcount}</div>
 				</td>
 				
-				<c:if test="${ b.vbvisit == 0}">
-				<td style="text-align:center">
-				<input style="background:#5D5D5D; color:white; border:1; height:29px; line-height: 28px; width:54px;" type="button" value="진행중" onclick="location.href='./vboardDetailAction.vb?num=${b.vbnum}'">
+				<td>
+					<input type="submit" class="processState probtn${b.vbnum}" value="진행" onclick="processMethod('${b.vbnum}', '${b.vid}');">
 				</td>
-				</c:if>
-				<c:if test="${ b.vbvisit !=0}">
-				<td style="text-align:center">
-				<input style="border:1; background:white; color:#5D5D5D; height:29px; line-height: 28px; width:54px;" type="button" value="완료" id="suc">
-				</td>
-			</c:if>
 			</tr>
 		</c:forEach>
 		</table>

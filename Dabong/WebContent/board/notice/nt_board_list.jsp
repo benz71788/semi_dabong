@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지 게시판</title>
-<link href="./css_sm/list.css" rel="stylesheet">
+<link href="./css/css_sm/list.css" rel="stylesheet">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
 button{float:right;}

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link href="./css_sm/form.css" rel="stylesheet">
+<link href="./css/css_sm/form.css" rel="stylesheet">
 <script>
 	$(document).ready(function(){
 		

@@ -47,7 +47,7 @@ insert into VT_MATCH values(VT_MATCH_SEQ.NEXTVAL, 17, 'admin', 'qwer', '매칭�
 select * from vt_match;
 select * from wr_match;
 
-update VT_MATCH set MATCHING = '매칭완료', MATCHDATE = sysdate 
+update WR_MATCH set MATCHING = '매칭완료', MATCHDATE = sysdate where Mnum = 3
 	where MNUM = 1 and BOARDNUM = 11 and REQUESTMB = 'admin' and RESPONSEMB ='asdf';
 
 delete vt_match where vmnum = 7;

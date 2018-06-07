@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>정보마당 글쓰기</title>
-<link href="./css_kh/write.css" rel="stylesheet" type="text/css">
+<link href="./css/css_kh/write.css" rel="stylesheet" type="text/css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <%@ include file="../../header/Header.jsp" %>

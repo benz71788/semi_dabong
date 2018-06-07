@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import net.board.wb.db.WBoardDAO;
 import net.board.wb.db.WBoardVO;
+import net.user.member.db.WRMatchDAO;
 
 public class WBoardListAction implements Action {
 
@@ -37,7 +38,6 @@ public class WBoardListAction implements Action {
 		WBoardDAO wboardDAO=WBoardDAO.getInstance();
 		int listcount =wboardDAO.getListCount(listOpt);
 		List<WBoardVO> boardlist = wboardDAO.getBoardList(listOpt);
-	
 		
 		int maxpage=(int)(listcount/10.0+0.9);
 		int startpage=(int)(spage/5.0+0.8)*5-4;

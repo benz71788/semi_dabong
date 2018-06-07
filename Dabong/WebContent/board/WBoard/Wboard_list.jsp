@@ -9,9 +9,13 @@
 <script src="./js/jquery-3.3.1.js"></script>
 <script>
 	$(document).ready(function() {
+		
 		if('${sessionScope.id}' == ""){
 			location.href="login.net";
 		}
+
+		$('.processState').trigger("click");
+		
 		
 		$("#show").click(function() {
 			$(".page").toggle();
@@ -69,7 +73,27 @@
 			$(".page1").hide();
 			
 		});
+		
+	
 	});
+	
+	function processMethod(boardnum, responsemb){
+		var sendData = 'boardNum=' + boardnum 
+				+ "&" + 'responseMB=' + responsemb;
+		var processState = '.probtn' + boardnum;
+		$.ajax({
+			type:"POST",
+			data: sendData,
+			url: 'wrProcessState.net',
+			success: function(result){
+				if(result == 1){
+					$(processState).css('background-color', 'grey');
+					$(processState).val('완료');
+				}
+				
+			}
+		})
+	}
 	
 </script>
 
@@ -296,16 +320,9 @@ padding:10px;
 					<div>${b.wbreadcount}</div>
 				</td>
 				
-				<c:if test="${ b.wbvisit == 0}">
-				<td style="text-align:center">
-				<input style="background:#5D5D5D; color:white; border:1; height:29px; line-height: 28px; width:54px;" type="button" value="진행중" onclick="location.href='./wboardDetailAction.wb?num=${b.wbnum}'">
+				<td>
+					<input type="submit" class="processState probtn${b.wbnum}" value="진행" onclick="processMethod('${b.wbnum}', '${b.wid}');">
 				</td>
-				</c:if>
-				<c:if test="${ b.wbvisit !=0}">
-				<td style="text-align:center">
-				<input style="border:1; background:white; color:#5D5D5D; height:29px; line-height: 28px; width:54px;" type="button" value="완료" id="suc">
-				</td>
-			</c:if>
 			
 			
 			

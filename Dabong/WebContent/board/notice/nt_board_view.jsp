@@ -6,12 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./css_sm/form.css" rel="stylesheet">
+<link href="./css/css_sm/form.css" rel="stylesheet">
 </head>
 <body>
 <%@ include file="../../header/Header.jsp" %>
-<form action="./net.board.notice.action/NTBoardAddAction.nt" method="post"
-	enctype="multipart/form-data" name="boardform">
 		<c:set var="bd" value="${boardDetail}"/>
 		<h2>공지 게시판 - view페이지</h2><br>
 		<hr>
@@ -43,6 +41,5 @@
 				<a href="./NTBoardList.nt">목록</a>&nbsp;&nbsp;
 		</div>
 <%@ include file="../../footer/Footer.jsp" %>
-</form>
 </body>
 </html>

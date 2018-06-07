@@ -6,7 +6,7 @@
 <head>
 <title>뉴스 상세보기</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link href="./css_kh/view.css" rel="stylesheet">
+<link href="./css/css_kh/view.css" rel="stylesheet">
 <script>	//최상단 스크립트
 $( document ).ready( function() {
   $( window ).scroll( function() {

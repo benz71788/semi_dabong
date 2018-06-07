@@ -6,7 +6,7 @@
 <head>
 <title>정보마당 앨범형</title>
 <script src="./js/jquery-3.3.1.js"></script>
-<link href="./css_kh/album.css" rel="stylesheet">
+<link href="./css/css_kh/album.css" rel="stylesheet">
 <script>	//버튼클릭 스크립트
 $(document).ready(function(){
 	$('#1').on('click', function(){

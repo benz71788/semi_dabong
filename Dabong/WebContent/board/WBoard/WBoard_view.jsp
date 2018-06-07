@@ -28,9 +28,7 @@ textarea{width:100%}
     line-height: 1.5em;
     margin-bottom: 10px;
 }
-.matchbtn{
-	
-}
+
 
 </style>
 <script src="./js/jquery-3.3.1.js"></script>
