@@ -35,4 +35,4 @@ select * from (select rownum rnum, VBNUM, VID, VNAME, VBSUB, VBCONT,
 	VBWEEK, VBPOSTIME, VBAREA, VBRELIG, VBCHRAC, VBEXPER, 
 	VBEXCONT, VBDATE, VBVISIT, VBCERTI, VBREADCOUNT from 
 	(select * from VT_BOARD order by VBNUM desc))
-	where rnum>=1 
+	where vid = 'admin';

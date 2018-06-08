@@ -653,7 +653,12 @@ hr {
 <div class="dropdown1" style="height: 15px;">
 <i class="fa fa-user"></i> ${sessionScope.id}
   <div class="dropdown-content1">
-    <a href="#" class="profile">프로필 보기</a>
+  	<c:if test="${sessionScope.user == '복지자' }">
+    	<a href="./wrMyProfile.net" class="profile">프로필 보기</a>
+    </c:if>
+    <c:if test="${sessionScope.user == '봉사자' }">
+    	<a href="./vtMyProfile.net" class="profile">프로필 보기</a>
+    </c:if>
     <a href="logout.net" class="logout">로그아웃</a>
     <c:if test="${sessionScope.id == 'admin'}">
     	<a href="./admin.net">관리자 페이지</a>

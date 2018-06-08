@@ -199,11 +199,6 @@ public class MemberFrontController extends HttpServlet {
     		} catch(Exception e) {
     			e.printStackTrace();
     		}
-    	} else if(command.equals("/matching.net")) {
-    		//합치면 지워야 함.
-    		forward = new ActionForward();
-    		forward.setRedirect(false);
-    		forward.setPath("./user/member/matchingbtn.jsp");
     	} else if(command.equals("/vtSendMatch.net")) {
     		action = new VTSendMatchAction();
     		try {
@@ -255,6 +250,34 @@ public class MemberFrontController extends HttpServlet {
     		}
     	} else if(command.equals("/wrProcessState.net")) {
     		action = new WRProcessStateAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/vtMyProfile.net")) {
+    		action = new VTMyProfileAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/wrMyProfile.net")) {
+    		action = new WRMyProfileAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/vtProfileProcess.net")) {
+    		action = new VTProfileListAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/wrProfileProcess.net")) {
+    		action = new WRProfileListAction();
     		try {
     			forward = action.execute(request, response);
     		} catch(Exception e) {

@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import net.board.vb.db.VBoardVO;
+
 public class WBoardDAO {
 	DataSource ds;
 	Connection con;
@@ -634,6 +636,67 @@ public class WBoardDAO {
 		return null;
 	}
 	
-
+	public List<WBoardVO> profileList(String userId){
+		List<WBoardVO> list = new ArrayList<WBoardVO>();
+		try {
+			StringBuffer sql=new StringBuffer();
+			con = ds.getConnection();
+			sql.append("select * from");
+			sql.append("(select rownum rnum, WBNUM, WID, WNAME, WBSUB, WBCONT, ");
+			sql.append("WBWEEK, WBPOSTIME, WBAREA, WBRELIG, WBGENV, WBHOPE, ");
+			sql.append("WBHOPEVE, WBDATE, WBVISIT, WBFILE, WBREADCOUNT from ");
+			sql.append("(select * from WR_BOARD order by WBNUM desc)) ");
+			sql.append("where wid = ? ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				WBoardVO board=new WBoardVO();
+				board.setWbnum(rs.getInt("wbnum"));
+				board.setWid(rs.getString("wid"));
+				board.setWname(rs.getString("wname"));
+				board.setWbsub(rs.getString("wbsub"));
+				board.setWbcont(rs.getString("wbcont"));
+				board.setWbweek(rs.getString("wbweek"));
+				board.setWbpostime(rs.getString("wbpostime"));
+				board.setWbarea(rs.getString("wbarea"));
+				board.setWbrelig(rs.getString("wbrelig"));
+				board.setWbgenv(rs.getString("wbgenv"));
+				board.setWbhope(rs.getString("wbhope"));
+				board.setWbhopeve(rs.getString("wbhopeve"));
+				board.setWbdate(rs.getDate("wbdate"));
+				board.setWbvisit(rs.getInt("wbvisit"));
+				board.setWbfile(rs.getString("wbfile"));
+				board.setWbreadcount(rs.getInt("wbreadcount"));
+				list.add(board);
+			}
+			return list;
+		}catch(Exception ex) {
+			System.out.println("getBoardList() error : "+ex);
+		}finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
 
 }

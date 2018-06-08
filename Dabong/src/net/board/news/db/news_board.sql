@@ -10,12 +10,12 @@ create table news_board(	--뉴스 게시판(자료실or정보마당)
 	primary key(NENUM)	
 );
 
-drop table news_board;
 
-select * from news_board order by nenum desc;
+select * from news_board where nenum = 23;
 
 alter table news_board modify(nesub varchar2(200));
 
+Delete news_board where nenum = 23;
 
 
 

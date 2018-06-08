@@ -34,3 +34,5 @@ select AGE, count(AGE) from
 update WR_MEMBER set WRESID = 19951021 where WID = 'admin111';
 
 delete from wr_member;
+
+select (FLOOR((MONTHS_BETWEEN(SYSDATE, TO_DATE(WRESID, 'YYYYMMDD'))/12)/10) * 10) AS AGE FROM WR_MEMBER where wid = 'qwer'

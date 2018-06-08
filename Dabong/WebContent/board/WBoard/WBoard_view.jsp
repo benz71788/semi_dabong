@@ -36,8 +36,9 @@ textarea{width:100%}
 <script>
 	
 	$(document).ready(function(){
-
-		matchingbtn("wrSendMatch.net");
+		if("${sessionScope.user}" == '봉사자'){
+			matchingbtn("wrSendMatch.net");
+		}
 		
 	});
 	

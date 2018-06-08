@@ -256,6 +256,49 @@ public class VTMemberDAO {
 		return monthList;
 	}
 	
+	public int userAge(String id) {
+		int age = 0;
+		try {
+			con = ds.getConnection();
+			String sql = "select (FLOOR((MONTHS_BETWEEN("
+					+ "SYSDATE, TO_DATE(VRESID, 'YYYYMMDD'))/12)/10) * 10) "
+					+ "AS AGE FROM VT_MEMBER where vid = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				age = rs.getInt(1);
+				System.out.println(age);
+			}
+			return age;
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+	
 	public Map<String, Object> ageListCount(){
 		Map<String, Object> ageList = new HashMap<String, Object>();
 		try {

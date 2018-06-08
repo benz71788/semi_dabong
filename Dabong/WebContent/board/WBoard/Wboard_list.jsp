@@ -172,10 +172,6 @@ padding:10px;
 	<h1 style="text-align:left;" id="head1">복지자 참여</h1>
 	<p style="text-align:left;" id="qav_head" class="vbo_head">복지자가 직접 등록한 복지서비스 게시판 입니다.</p>
 	
-	<form action="wboardList.wb" method="get">
-		<button name="opt" value="10">내가 쓴 글 보기</button>
-	</form>
-	
 	<div id="searchForm" style="text-align: center">
 		<form action="wboardList.wb" method="get">
 			
@@ -396,6 +392,6 @@ padding:10px;
 	</table>
 	
 <br><br>
-
+<%@ include file="../../footer/Footer.jsp" %>
 </body>
 </html>

@@ -114,9 +114,11 @@ form{
         <a href="./NTBoardList.nt?page=${page + 1}" class="pageAfter">&nbsp;다음</a>
         </c:if>
       </td>
+      <c:if test="${sessionScope.id == 'admin' }">
       <td colspan="1" style="text-align: center">
          <a href="./NTBoardWrite.nt">[글쓰기]</a>
       </td>
+      </c:if>
     </tr>
   </table>
     <br>
@@ -145,7 +147,7 @@ form{
 		$('[name="search"]').click(function() {
 		  	var text = $('[name="condition"]').val().trim();
 			var opt =  $("#select option:selected").val();
-		    var page = "${page}";
+		    var page = 1;
 			
 			if(text=="" ){
 				alert('검색어를 넣어주세요.');

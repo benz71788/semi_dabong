@@ -85,10 +85,6 @@
 	<br>
 	<h1>봉사자 참여</h1>
 	
-	<form action="vboardList.vb" method="get">
-		<button name="opt" value="8">내가 쓴 글 보기</button>
-	</form>
-	
 	<div id="searchForm" style="text-align: center">
 		<form action="vboardList.vb" method="get">
 			<table style="width:100%" border="1">
@@ -306,6 +302,6 @@
 		
 	</table>
 	
-
+<%@ include file="../../footer/Footer.jsp" %>
 </body>
 </html>

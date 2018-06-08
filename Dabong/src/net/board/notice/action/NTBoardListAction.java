@@ -155,7 +155,8 @@ public class NTBoardListAction implements Action{
 			writer.println("</td>");
 			writer.println("</tr>");
 
-
+			writer.println("<input type='hidden' id='page' value="+page+">");
+			  
 			writer.flush();
 			writer.close();
 

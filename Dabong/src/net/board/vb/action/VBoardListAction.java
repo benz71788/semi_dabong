@@ -36,7 +36,6 @@ public class VBoardListAction implements Action {
 		VBoardDAO vboardDAO= new VBoardDAO();
 		int listcount =vboardDAO.getListCount(listOpt);
 		List<VBoardVO> boardlist = vboardDAO.getBoardList(listOpt);
-	
 		
 		int maxpage=(int)(listcount/10.0+0.9);
 		int startpage=(int)(spage/5.0+0.8)*5-4;

@@ -593,6 +593,68 @@ public class VBoardDAO {
 		return null;
 	}
 	
+	public List<VBoardVO> profileList(String userId){
+		List<VBoardVO> list = new ArrayList<VBoardVO>();
+		try {
+			StringBuffer sql=new StringBuffer();
+			con = ds.getConnection();
+			sql.append("select * from ");
+			sql.append("(select rownum rnum, VBNUM, VID, VNAME, VBSUB, VBCONT, ");
+			sql.append("VBWEEK, VBPOSTIME, VBAREA, VBRELIG, VBCHRAC, VBEXPER, ");
+			sql.append("VBEXCONT, VBDATE, VBVISIT, VBCERTI, VBREADCOUNT from ");
+			sql.append("(select * from VT_BOARD order by VBNUM desc)) ");
+			sql.append("where vid = ? ");
+			pstmt = con.prepareStatement(sql.toString());
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				VBoardVO board=new VBoardVO();
+				board.setVbnum(rs.getInt("VBNUM"));
+				board.setVid(rs.getString("VID"));
+				board.setVname(rs.getString("VNAME"));
+				board.setVbsub(rs.getString("VBSUB"));
+				board.setVbcont(rs.getString("VBCONT"));
+				board.setVbweek(rs.getString("VBWEEK"));
+				board.setVbpostime(rs.getString("VBPOSTIME"));
+				board.setVbarea(rs.getString("VBAREA"));
+				board.setVbrelig(rs.getString("VBRELIG"));
+				board.setVbchrac(rs.getString("VBCHRAC"));
+				board.setVbexper(rs.getString("VBEXPER"));
+				board.setVbexcont(rs.getString("VBEXCONT"));
+				board.setVbdate(rs.getDate("VBDATE"));
+				board.setVbvisit(rs.getInt("VBVISIT"));
+				board.setVbcerti(rs.getString("VBCERTI"));
+				board.setVbreadcount(rs.getInt("VBREADCOUNT"));
+				list.add(board);
+			}
+			return list;
+		}catch(Exception ex) {
+			System.out.println("getBoardList() error : "+ex);
+		}finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
 
 
 }

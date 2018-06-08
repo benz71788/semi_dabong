@@ -20,8 +20,8 @@
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
-	position: fixed;
 	left: 0;
+	position:fixed;
 	bottom: 0;
 	text-align: left;
 	font: normal 16px sans-serif;
@@ -117,8 +117,7 @@
 				<a href="#">공지사항</a> · 
 				<a href="#">복지자참여</a> · 
 				<a href="#">봉사자참여</a> · 
-				<a href="#">정보마당</a> · 
-				<a href="#">문의사항</a>
+				<a href="#">정보마당</a>
 			</p>
 
 			<p>DABONG. &copy; 2018</p>

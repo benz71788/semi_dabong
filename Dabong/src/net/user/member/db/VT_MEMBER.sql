@@ -57,3 +57,5 @@ update VT_MEMBER set VPASS = '111', VRESID = 901001, VGENDER = '남자', VJOB = 
 
 			
 delete from vt_member where vid='admin';
+
+
