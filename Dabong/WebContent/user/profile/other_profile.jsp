@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="utf-8">
 	
-	<title>본인 프로필</title>
+	<title>상대방 프로필</title>
 
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
@@ -93,6 +93,7 @@ margin-bottom: 2rem;
 text-align:center;
 }
 
+
 /**********************
 		courses
 **********************/
@@ -106,6 +107,11 @@ text-align:center;
 {
 font-size:18px;
 color:#84919B;
+ }
+ 
+.pfile-list{
+	height: 110px;
+    overflow-y: scroll;
  }
 /**********************
 		courses
@@ -203,14 +209,23 @@ transition:0.3s;
 		<script src="./js/jquery-3.3.1.js"></script>
  	<script>
  		$(document).ready(function(){
- 			var userData = "userId=" + '${sessionScope.id}';
+ 			
  			var userUrl = "";
+ 			var boardUrl = "";
+ 			var updateUrl = "";
+ 			var userData = "userId=" + '${sessionScope.id}';
+ 			
  			if('${sessionScope.user}' == '봉사자'){
  				userUrl = 'vtProfileProcess.net';
  				boardUrl = 'vboardDetailAction.vb';
+ 				updateUrl = './vtUpdateView.net'
+ 				updateDeleteMethod(updateUrl);
+ 				
  			} else if('${sessionScope.user}' == '복지자'){
  				userUrl = 'wrProfileProcess.net';
  				boardUrl = 'wboardDetailAction.wb';
+ 				updateUrl = './wrUpdateView.net';
+ 				updateDeleteMethod(updateUrl);
  			}
  			
  			$.getJSON(userUrl, userData, function(list){
@@ -221,13 +236,14 @@ transition:0.3s;
  				});
  			});
  		});
+ 		
+ 		
  	</script>
 
 	</head>
 	<!-------------end head scripts and link src ------------->
 	<!------------start content ------------>
 	<body>
-		<jsp:include page="../../header/Header.jsp" />
 		<div class="wrapper">
 			<div class="container-fluid" id="top-container-fluid-nav">
 				<div class="container">	
@@ -252,6 +268,7 @@ transition:0.3s;
 									</li>
 									
 								</ul>
+								<c:if test="${sessionScope.secret == '공개'}">
 								 <p class="card-text">${member.key}</p>
 
 								<div class="address">								
@@ -262,9 +279,24 @@ transition:0.3s;
 									<li><i class="fa fa-calendar-o" aria-hidden="true"></i>  <b class="memberName">${userAge}대</b></li>
 									<li><i class="fa fa-calendar-o" aria-hidden="true"></i>  <b class="memberName">${member.date}</b></li>
 								</ul>
+								</div>
+								</c:if>
 								
-							 <p><button class="w3-button w3-block w3-indigo" data-toggle="tooltip" data-placement="top" title="Free to message and hire us"> <i class="fa fa-comment-o fa-lg"></i> 수정하기 </button></p>
-							 <p><button class="w3-button w3-block w3-red" data-toggle="tooltip" data-placement="top" title="Free to message and hire us"> <i class="fa fa-comment-o fa-lg"></i> 탈퇴하기 </button></p>
+								<c:if test="${sessionScope.secret == '비공개'}">
+								 <p class="card-text">공개를 원치 않습니다.</p>
+
+								<div class="address">								
+								<ul class="w3-ul w3-medium">
+									<li> <i class="fa fa-calendar-o" aria-hidden="true"></i>  <b class="memberName">공개를 원치 않습니다.</b></li>
+									<li><i class="fa fa-calendar-o" aria-hidden="true"></i>  <b class="memberName">공개를 원치 않습니다.</b></li>
+									<li><i class="fa fa-calendar-o" aria-hidden="true"></i>  <b class="memberName">공개를 원치 않습니다.</b></li>
+									<li><i class="fa fa-calendar-o" aria-hidden="true"></i>  <b class="memberName">공개를 원치 않습니다.</b></li>
+									<li><i class="fa fa-calendar-o" aria-hidden="true"></i>  <b class="memberName">공개를 원치 않습니다.</b></li>
+								</ul>
+								</div>
+								</c:if>
+								<br>
+							 <p><button class="w3-button w3-block w3-indigo updatebtn" data-toggle="tooltip" data-placement="top" title="Free to message and hire us" onclick="return false;"> <i class="fa fa-comment-o fa-lg"></i> 회원정보 </button></p>
 							</div>
 							
 								<ul class="w3-ul w3-small pfile-list">

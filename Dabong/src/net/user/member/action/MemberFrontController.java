@@ -283,6 +283,20 @@ public class MemberFrontController extends HttpServlet {
     		} catch(Exception e) {
     			e.printStackTrace();
     		}
+    	} else if(command.equals("/vtAlarmView.net")) {
+    		action = new VTAlarmListAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	} else if(command.equals("/wrAlarmView.net")) {
+    		action = new WRAlarmListAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    		}
     	}
     	
     	if(forward != null) {

@@ -37,16 +37,15 @@
 			sendURL = "wrUpdateView.net";
 			$('form').attr('action', "wrUpdateProcess.net");
 		}
-		
-		if('${member.secret == "공개"}'){
+		if('${member.secret}' == '공개'){
 			$('.pubcheck').attr("checked", "checked");
-		} else if('${member.secret == "비공개"}'){
+		} else if('${member.secret}' == '비공개'){
 			$('.pricheck').attr("checked", "checked");
 		}
 		
-		if('${member.gender == "남자"}'){
+		if('${member.gender}' == '남자'){
 			maleBtn();
-		} else if('${member.gender == "여자"}'){
+		} else if('${member.gender}' == '여자'){
 			femaleBtn();
 		}
 		
@@ -68,6 +67,7 @@
 		$('.radioFemale').removeAttr("checked");
 		$('.malebtn').css("background-color", "#3897EB").css("color", "white");
 		$('.femalebtn').css("background-color", "white").css("color", "#3897EB");
+
 	}
 	
 	function femaleBtn(){
@@ -112,9 +112,9 @@
 				</tr>
 				<tr>
 					<td><span class="userinfo">성별</span></td>
-					<td><input type="radio" name="userGender" class="radioMale" maxlength="30" style="display:none;">
+					<td><input type="radio" name="userGender" class="radioMale" value="남자" maxlength="30" style="display:none;">
 						<span class="w3-button malebtn">남자</span>
-						<input type="radio" name="userGender" class="radioFemale" maxlength="30" style="display:none;">
+						<input type="radio" name="userGender" class="radioFemale" value="여자" maxlength="30" style="display:none;">
 						<span class="w3-button femalebtn">여자</span><br></td>
 				</tr>
 				<tr>

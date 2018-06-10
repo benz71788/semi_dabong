@@ -51,71 +51,71 @@
 		</th></tr>
 		<tr>
 			<td><div>복지가능 요일</div></td>
-			<td><input type="radio" name="wbweek" id="wbweek" value="월요일" checked>월요일
-			<input type="radio" name="wbweek" id="wbweek" value="화요일">화요일
-			<input type="radio" name="wbweek" id="wbweek" value="수요일">수요일
-			<input type="radio" name="wbweek" id="wbweek" value="목요일">목요일
-			<input type="radio" name="wbweek" id="wbweek" value="금요일">금요일
-			<input type="radio" name="wbweek" id="wbweek" value="토요일">토요일
-			<input type="radio" name="wbweek" id="wbweek" value="일요일">일요일
-			<input type="radio" name="wbweek" id="wbweek" value="무관">무관
+			<td><input type="radio" name="wbweek" value="월요일" checked>월요일
+			<input type="radio" name="wbweek" value="화요일">화요일
+			<input type="radio" name="wbweek" value="수요일">수요일
+			<input type="radio" name="wbweek" value="목요일">목요일
+			<input type="radio" name="wbweek" value="금요일">금요일
+			<input type="radio" name="wbweek" value="토요일">토요일
+			<input type="radio" name="wbweek" value="일요일">일요일
+			<input type="radio" name="wbweek" value="무관">무관
 			</td>
 		
 		</tr>
 		<tr>
 			<td><div>복지가능 시간</div></td>
-			<td><input type="radio" name="wbpostime" id="wbpostime" value="오전" checked>오전
-			<input type="radio" name="wbpostime" id="wbpostime" value="오후">오후
-			<input type="radio" name="wbpostime" id="wbpostime" value="종일">종일
-			<input type="radio" name="wbpostime" id="wbpostime" value="시간협의" >시간협의
+			<td><input type="radio" name="wbpostime" value="오전" checked>오전
+			<input type="radio" name="wbpostime" value="오후">오후
+			<input type="radio" name="wbpostime" value="종일">종일
+			<input type="radio" name="wbpostime" value="시간협의" >시간협의
 			
 			</td>
 		</tr>
 		<tr>
 			<td><div>복지자 지역</div></td>
-			<td><input type="radio" name="wbarea" id="wbarea" value="서울" checked>서울
-			<input type="radio" name="wbarea" id="wbarea" value="부산">부산
-			<input type="radio" name="wbarea" id="wbarea" value="대구">대구
-			<input type="radio" name="wbarea" id="wbarea" value="인천">인천
-			<input type="radio" name="wbarea" id="wbarea" value="광주">광주
-			<input type="radio" name="wbarea" id="wbarea" value="대전">대전
-			<input type="radio" name="wbarea" id="wbarea" value="울산">울산
-			<input type="radio" name="wbarea" id="wbarea" value="세종">세종
-			<input type="radio" name="wbarea" id="wbarea" value="경기">경기
-			<input type="radio" name="wbarea" id="wbarea" value="강원">강원
-			<input type="radio" name="wbarea" id="wbarea" value="충북">충북
-			<input type="radio" name="wbarea" id="wbarea" value="충남">충남
-			<input type="radio" name="wbarea" id="wbarea" value="전북">전북
-			<input type="radio" name="wbarea" id="wbarea" value="전남">전남
-			<input type="radio" name="wbarea" id="wbarea" value="경북">경북
-			<input type="radio" name="wbarea" id="wbarea" value="경남">경남
-			<input type="radio" name="wbarea" id="wbarea" value="제주">제주
+			<td><input type="radio" name="wbarea" value="서울" checked>서울
+			<input type="radio" name="wbarea" value="부산">부산
+			<input type="radio" name="wbarea" value="대구">대구
+			<input type="radio" name="wbarea" value="인천">인천
+			<input type="radio" name="wbarea" value="광주">광주
+			<input type="radio" name="wbarea" value="대전">대전
+			<input type="radio" name="wbarea" value="울산">울산
+			<input type="radio" name="wbarea" value="세종">세종
+			<input type="radio" name="wbarea" value="경기">경기
+			<input type="radio" name="wbarea" value="강원">강원
+			<input type="radio" name="wbarea" value="충북">충북
+			<input type="radio" name="wbarea" value="충남">충남
+			<input type="radio" name="wbarea" value="전북">전북
+			<input type="radio" name="wbarea" value="전남">전남
+			<input type="radio" name="wbarea" value="경북">경북
+			<input type="radio" name="wbarea" value="경남">경남
+			<input type="radio" name="wbarea" value="제주">제주
 	
 		</tr>
 		<tr>
 			<td><div>종교</div></td>
-			<td><input type="radio" name="wbrelig" id="wbrelig" value="기독교" checked>기독교
-			<input type="radio" name="wbrelig" id="wbrelig" value="이슬람교">이슬람교
-			<input type="radio" name="wbrelig" id="wbrelig" value="유대교">유대교
-			<input type="radio" name="wbrelig" id="wbrelig" value="불교" >불교
-			<input type="radio" name="wbrelig" id="wbrelig" value="무교" >무교
+			<td><input type="radio" name="wbrelig" value="기독교" checked>기독교
+			<input type="radio" name="wbrelig" value="이슬람교">이슬람교
+			<input type="radio" name="wbrelig" value="유대교">유대교
+			<input type="radio" name="wbrelig" value="불교" >불교
+			<input type="radio" name="wbrelig" value="무교" >무교
 			
 		</tr>
 		<tr>
 			<td><div>봉사자 성별</div></td>
-			<td><input type="radio" name="wbgenv" id="wbgenv" value="남성" checked>남성
-			<input type="radio" name="wbgenv" id="wbgenv" value="여성">여성
-			<input type="radio" name="wbgenv" id="wbgenv" value="무관">무관
+			<td><input type="radio" name="wbgenv" value="남성" checked>남성
+			<input type="radio" name="wbgenv" value="여성">여성
+			<input type="radio" name="wbgenv" value="무관">무관
 			
 			</td>
 		</tr>
 		<tr>
 			<td><div>희망 복지</div></td>
-			<td><input type="radio" name="wbhope" id="wbhope" value="건강" checked>건강
-			<input type="radio" name="wbhope" id="wbhope" value="고용">고용
-			<input type="radio" name="wbhope" id="wbhope" value="보육/교육">보육/교육
-			<input type="radio" name="wbhope" id="wbhope" value="생활/안전">생활/안전
-			<input type="radio" name="wbhope" id="wbhope" value="주거">주거
+			<td><input type="radio" name="wbhope" value="건강" checked>건강
+			<input type="radio" name="wbhope" value="고용">고용
+			<input type="radio" name="wbhope" value="보육/교육">보육/교육
+			<input type="radio" name="wbhope" value="생활/안전">생활/안전
+			<input type="radio" name="wbhope" value="주거">주거
 			</td>
 		</tr>
 		<tr>

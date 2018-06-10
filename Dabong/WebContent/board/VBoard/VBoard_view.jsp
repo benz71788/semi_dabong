@@ -11,10 +11,7 @@
 <script src="./js/match.js"></script>
 <script>
 	$(document).ready(function(){
-		if("${sessionScope.user}" == '복지자'){
-			matchingbtn("vtSendMatch.net");
-		}
-		
+		matchingbtn("vtSendMatch.net");
 		
 	});
 </script>

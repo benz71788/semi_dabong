@@ -48,32 +48,32 @@
 		</tr>
 		<tr>
 			<td><div>봉사가능 요일</div></td>
-			<td><input type="radio" name="vbweek" id="vbweek" value="월요일">월요일
-			<input type="radio" name="vbweek" id="vbweek" value="화요일">화요일
-			<input type="radio" name="vbweek" id="vbweek" value="수요일">수요일
-			<input type="radio" name="vbweek" id="vbweek" value="목요일">목요일
-			<input type="radio" name="vbweek" id="vbweek" value="금요일">금요일
-			<input type="radio" name="vbweek" id="vbweek" value="토요일">토요일
-			<input type="radio" name="vbweek" id="vbweek" value="일요일">일요일
-			<input type="radio" name="vbweek" id="vbweek" value="무관">무관
+			<td><input type="radio" name="vbweek" value="월요일">월요일
+			<input type="radio" name="vbweek" value="화요일">화요일
+			<input type="radio" name="vbweek" value="수요일">수요일
+			<input type="radio" name="vbweek" value="목요일">목요일
+			<input type="radio" name="vbweek" value="금요일">금요일
+			<input type="radio" name="vbweek" value="토요일">토요일
+			<input type="radio" name="vbweek" value="일요일">일요일
+			<input type="radio" name="vbweek" value="무관">무관
 			</td>
 		
 		</tr>
 		<tr>
 			<td><div>봉사가능 시간</div></td>
-			<td><input type="radio" name="vbpostime" id="vbpostime" value="오전">오전
-			<input type="radio" name="vbpostime" id="vbpostime" value="오후">오후
-			<input type="radio" name="vbpostime" id="vbpostime" value="종일">종일
-			<input type="radio" name="vbpostime" id="vbpostime" value="시간협의">시간협의
+			<td><input type="radio" name="vbpostime" value="오전">오전
+			<input type="radio" name="vbpostime" value="오후">오후
+			<input type="radio" name="vbpostime" value="종일">종일
+			<input type="radio" name="vbpostime" value="시간협의">시간협의
 			
 			</td>
 		</tr>
 				<tr>
 			<td><div>봉사자 성격</div></td>
-			<td><input type="radio" name="vbchrac" id="vbchrac"value="쾌활함">쾌활함
-			<input type="radio" name="vbchrac" id="vbchrac" value="차분함">차분함
-			<input type="radio" name="vbchrac" id="vbchrac"value="명량함">명량함
-			<input type="radio" name="vbchrac" id="vbchrac" value="활동적임">활동적임
+			<td><input type="radio" name="vbchrac" value="쾌활함">쾌활함
+			<input type="radio" name="vbchrac" value="차분함">차분함
+			<input type="radio" name="vbchrac" value="명량함">명량함
+			<input type="radio" name="vbchrac" value="활동적임">활동적임
 			</td>
 		</tr>
 		<tr>

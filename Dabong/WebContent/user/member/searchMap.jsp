@@ -15,9 +15,9 @@
 	 $(document).ready(function(){
 		 
 		 if("${sessionScope.user}" == '봉사자'){
-			 loadFiles("./json/welfareMap.json");
+			 loadFiles("./json/welfareMap.json", "./wrMyProfile.net");
 		 } else if("${sessionScope.user}" == '복지자'){
-			 loadFiles("./json/volunteerMap.json");
+			 loadFiles("./json/volunteerMap.json", "./vtMyProfile.net");
 		 }
 		 
 		

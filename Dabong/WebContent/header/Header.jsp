@@ -124,6 +124,62 @@ body {
 /*| ======= end     ======= |*/
 /*| ======================= |*/
 
+/*| ======================== |*/
+/*| ======= Button3 ======== |*/
+/*| ======= start   ======== |*/
+/*| ======================== |*/
+
+.button3 {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #1e90ff;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 9px;
+  width: 70px;
+  height: 25px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.button3 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  top: -17px;
+  transition: 0.5s;
+}
+
+.button3 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button3:hover span {
+  padding-right: 25px;
+}
+
+.button3:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button3_align {
+  top: -20px;
+}
+
+/*| ======================= |*/
+/*| ======= Button3 ======= |*/
+/*| ======= end     ======= |*/
+/*| ======================= |*/
+
 .header {
 	z-index: 9999;
 	height: 90px;
@@ -146,12 +202,17 @@ body {
 
 div.dropdown1 {
 	position: absolute;
-	left: 181px;
+	left: 250px;
+}
+
+div.dropdown3 {
+	position: absolute;
+	left: 210px;
 }
 
 div.dropdown2 {
 	position: absolute;
-	left: 146px;
+	left: 170px;
 }
 
 .dropdown1:hover .dropdown-content1 {
@@ -159,6 +220,10 @@ div.dropdown2 {
 }
 
 .dropdown2:hover .dropdown-content2 {
+	display: block;
+}
+
+.dropdown3:hover .dropdown-content3 {
 	display: block;
 }
 
@@ -189,6 +254,19 @@ span.hover {
 }
 
 .dropdown-content2 a:hover {
+	border-left: 0;
+}
+
+.dropdown-content3 {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 400px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content3 a:hover {
 	border-left: 0;
 }
 
@@ -254,6 +332,23 @@ hr {
 	transition: 0.3s;
 }
 
+.header div.dropdown3 {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+	font-size: 15px;
+	line-height: 20px;
+	top: 20px;
+	bottom: 20px;
+}
+
+.header div.dropdown3:hover {
+	color: white;
+	transition: 0.3s;
+}
+
 .header a.mail-text:hover {
     color: dodgerblue;
     border-top: 0;
@@ -291,6 +386,11 @@ hr {
 
 .scrollBlind {
     height: 200px;
+    overflow-y: scroll;
+}
+
+.alarmBlind {
+    height: 150px;
     overflow-y: scroll;
 }
 
@@ -360,6 +460,19 @@ span.hover {
 }
 
 .dropdown-content2 a:hover {
+	border-left: 0;
+}
+
+.dropdown-content3 {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 350px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content3 a:hover {
 	border-left: 0;
 }
 
@@ -436,6 +549,23 @@ hr {
 }
 
 .header div.dropdown2:hover {
+	color: white;
+	transition: 0.3s;
+}
+
+.header div.dropdown3 {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+	font-size: 15px;
+	line-height: 20px;
+	top: 20px;
+	bottom: 20px;
+}
+
+.header div.dropdown3:hover {
 	color: white;
 	transition: 0.3s;
 }
@@ -543,32 +673,53 @@ hr {
 	$(document).ready(function(){
 		var boardnum;
 		var boardaddress = "";
+		var alarmaddress = "";
 		var stateUrl = "";
 		var listUrl = "";
+		var alarmUrl = "";
 		var messageUrl = "";
 		var messageData = "";
+		var sendData = "id=" + '${sessionScope.id}';
 		
 		if('${sessionScope.user}' == '봉사자'){
 			stateUrl = "vtSendMatch.net";
 			listUrl = "vtMessageView.net";
+			alarmUrl = "vtAlarmView.net";
 			messageUrl = "vtMatchProcess.net";
-			boardaddress = "./wboardDetailAction.wb?num="
+			boardaddress = "./vboardDetailAction.vb?num=";
+			alarmaddress = "./wboardDetailAction.wb?num=";
 		} else {
 			stateUrl = "wrSendMatch.net";
 			listUrl = "wrMessageView.net";
+			alarmUrl = "wrAlarmView.net";
 			messageUrl = "wrMatchProcess.net";
-			boardaddress = "./vboardDetailAction.vb?num="
+			boardaddress = "./wboardDetailAction.wb?num=";
+			alarmaddress = "./vboardDetailAction.vb?num=";
 		}
 		
+		$.getJSON(listUrl, sendData, function(pulse){
+			if(pulse != ""){
+				$('.pulse-content2').css('display', "block");
+			}
+		});
+		
+		$.getJSON(alarmUrl, sendData, function(pulse){
+			if(pulse != ""){
+				$('.pulse-content3').css('display', "block");
+			}
+		});
+		
 		$('.dropdown2').hover(function(){
+			$('.total-count').empty();
 			$('.scrollBlind').empty();
-			var sendData = "id=" + '${sessionScope.id}';
+			var count = 0;
+			
 			$.getJSON(listUrl, sendData, function(list){
 				$(list).each(function(index, item){
 					var output = '';
 					
 					output += '<div class="mail-contnet">';
-					output += '<a href="#" class="mail-text">';
+					output += '<a href="' + boardaddress + item.boardNum + '" class="mail-text">';
 					output += '<table>';
 					output += '<a href="#" class="close-button"></a>';
 					output += '<tr><td><h5>' + item.requestMb + '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
@@ -593,13 +744,36 @@ hr {
 					output += '</div>';
 					boardnum = item.boardNum;
 					$('.scrollBlind').append(output);
+					count = count + 1;
 				});
+				$(".total-count").append(count);
 			});
 		});
 		
-		$('.scrollBlind').on('click', function(){
-			location.href=boardaddress + boardnum;
+		$('.dropdown3').hover(function(){
+			$('.total-count2').empty();
+			$('.alarmBlind').empty();
+			var count = '';
+			$.getJSON(alarmUrl, sendData, function(alarm){
+				$(alarm).each(function(index, item){
+					var output = '';
+					
+					output += '<div class="mail-contnet">';
+					output += '<a href="' + alarmaddress + item.boardNum + '" class="mail-text">';
+					output += '<table>';
+					output += '<tr><td><h5>' + item.responseName + '(' + item.responseMb + ')님이 수락하셨습니다.</h5></td>';
+					output += '<td rowspan="2">' + '<button class="button3 confirmbtn"' 
+						+ 'value="mNum=' + item.mNum + '&boardNum=' + item.boardNum + '&requestMB=' + '${sessionScope.id}'
+						+ '&responseMB=' + item.responseMb + '&state=confirm"><span class="hover">확인</span></button></td></tr>';
+					output += '<tr><td><span class="mail-desc">연락처는 ' + item.responsePhone + '입니다.</span></td></tr>';
+					output += '</div>';
+					$('.alarmBlind').append(output);
+					count = count + 1;
+				});
+				$(".total-count2").append(count);
+			});
 		});
+		
 		
 		$('.scrollBlind').on('click', '.approvebtn', function(){
 			messageData = $(this).val();
@@ -615,6 +789,11 @@ hr {
 			messageData = $(this).val();
 			messageBtn(this, messageData, messageUrl);
 		})
+		
+		$('.alarmBlind').on('click', '.confirmbtn', function(){
+			messageData = $(this).val();
+			messageBtn(this, messageData, messageUrl);
+		});
 	
 	});
 </script>
@@ -637,10 +816,22 @@ hr {
     <a href="./news_board_album.news" class="right-menu">정보마당</a>
   </div>
   <c:if test="${sessionScope.id != null}">
+  		<div class="dropdown3" style="height: 15px;">
+			<i class="fa fa-envelope"></i>
+			<div class="dropdown-content3">
+				<div class="drop-title"><strong class="total-count2"></strong>개의 알림이 있습니다.</div>
+				<hr>
+				<div class="alarmBlind">
+				</div>
+				<div class="end-title">복지의 최고봉, <strong>DABONG.</strong></div>
+			</div>
+			
+			<span class="pulse pulse-content3" style="display:none;"></span>
+		</div>
   <div class="dropdown2" style="height: 15px;">
 			<i class="fa fa-envelope"></i>
 			<div class="dropdown-content2">
-				<div class="drop-title"><strong></strong>개의 메세지가 있습니다.</div>
+				<div class="drop-title"><strong class="total-count"></strong>개의 메세지가 있습니다.</div>
 				<hr>
 				<div class="scrollBlind">
 				</div>
@@ -648,7 +839,7 @@ hr {
 				<div class="end-title">복지의 최고봉, <strong>DABONG.</strong></div>
 			</div>
 			
-			<span class="pulse"></span>
+			<span class="pulse pulse-content2" style="display:none;"></span>
 		</div>
 <div class="dropdown1" style="height: 15px;">
 <i class="fa fa-user"></i> ${sessionScope.id}

@@ -20,6 +20,7 @@ public class WRMatchProcessAction implements Action{
 		String requestMb = request.getParameter("requestMB");
 		String responseMb = request.getParameter("responseMB");
 
+		System.out.println(state);
 		
 		WRMatchDAO matchDAO = new WRMatchDAO();
 		WRMatchVO matchVO = new WRMatchVO();
@@ -46,6 +47,9 @@ public class WRMatchProcessAction implements Action{
 			out.println("alert('매칭이 완료된 상태입니다.');");
 			out.println("</script>");
 			out.close();
+		} else if(state.equals("confirm")) {
+			result = matchDAO.approveCancleMatch(matchVO, state);
+			resultState(result, out, state);
 		}
 		return null;
 	}

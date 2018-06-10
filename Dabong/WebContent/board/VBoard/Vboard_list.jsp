@@ -7,6 +7,61 @@
 <title>봉사자 게시판</title>
 <link type="text/css" rel="stylesheet" href="css/Vboard_list.css" />
 <script src="./js/jquery-3.3.1.js"></script>
+<style>
+.text-view::after {
+  height: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.text-view:hover:after {
+  height: 100%;
+}
+
+
+.img {
+  position: relative;
+  background-image: url(../../css/images/modal-2.jpg);
+  height: 300px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background: cover;
+}
+
+.img-cover {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.img .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+  text-align: center;
+}
+
+.search {
+  width: 100%;
+  background-color: dodgerblue;
+}
+.search_button {
+  background:#5D5D5D;
+  color: #fff;
+  vertical-align: center;
+  height:28px;
+  padding-top: 1px;
+  line-height: 28px;
+}
+
+</style>
 <script>
 	$(document).ready(function() {
 		if('${sessionScope.id}' == ""){

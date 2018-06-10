@@ -34,8 +34,8 @@ public class VTLoginProcessAction implements Action{
 		res.put("positions", array);
 		System.out.println(res);
 		
-		try (FileWriter file = new FileWriter("D:\\workspace\\Dabong\\Dabong\\WebContent\\json\\welfareMap.json")) {
-
+		try (FileWriter file = new FileWriter("/Users/shane/git/semi_dabong/Dabong/WebContent/json/welfareMap.json")) {
+			//FileWriter file = new FileWriter("D:\\workspace\\Dabong\\Dabong\\WebContent\\json\\welfareMap.json"
             file.write(res.toJSONString());
             file.flush();
 

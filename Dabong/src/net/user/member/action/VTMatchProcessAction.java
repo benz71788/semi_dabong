@@ -20,6 +20,7 @@ public class VTMatchProcessAction implements Action{
 		String requestMb = request.getParameter("requestMB");
 		String responseMb = request.getParameter("responseMB");
 		
+		
 		System.out.println(state);
 		System.out.println(mNum);
 		System.out.println(boardNum);
@@ -51,6 +52,9 @@ public class VTMatchProcessAction implements Action{
 			out.println("alert('매칭이 완료된 상태입니다.');");
 			out.println("</script>");
 			out.close();
+		} else if(state.equals("confirm")) {
+			result = matchDAO.approveCancleMatch(matchVO, state);
+			resultState(result, out, state);
 		}
 		return null;
 	}

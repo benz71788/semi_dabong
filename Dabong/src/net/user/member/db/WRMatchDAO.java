@@ -215,7 +215,7 @@ public class WRMatchDAO {
 		try {
 			con = ds.getConnection();
 			
-			String sql = "select MNUM, BOARDNUM, REQUESTMB, MATCHING, MATCHDATE, APPROVEDATE "
+			String sql = "select MNUM, BOARDNUM, REQUESTMB, MATCHING, CONFIRM, MATCHDATE, APPROVEDATE "
 					+ " from WR_MATCH "
 					+ " where RESPONSEMB = ? "
 					+ " order by MATCHDATE DESC ";
@@ -228,11 +228,13 @@ public class WRMatchDAO {
 				matchVO.setBoardNum(rs.getInt(2));
 				matchVO.setRequestMb(rs.getString(3));
 				matchVO.setMatching(rs.getString(4));
-				matchVO.setMatchDate(rs.getDate(5));
-				matchVO.setApproveDate(rs.getDate(6));
+				matchVO.setConfirm(rs.getString(5));
+				matchVO.setMatchDate(rs.getDate(6));
+				matchVO.setApproveDate(rs.getDate(7));
 
 				list.add(matchVO);
 			}
+			return list;
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -258,7 +260,58 @@ public class WRMatchDAO {
 				}
 			}
 		}
-		return list;
+		return null;
+	}
+	
+	public List<WRMatchVO> alarmGetList(String requestMB){
+		List<WRMatchVO> list = new ArrayList<WRMatchVO>();
+		try {
+			con = ds.getConnection();
+			
+			String sql = "select MNUM, BOARDNUM, RESPONSEMB, MATCHDATE, APPROVEDATE "
+					+ " from WR_MATCH "
+					+ " where REQUESTMB = ? and MATCHING = '매칭완료' and CONFIRM = '미확인' "
+					+ " order by MATCHDATE DESC ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, requestMB);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				WRMatchVO matchVO = new WRMatchVO();
+				matchVO.setmNum(rs.getInt(1));
+				matchVO.setBoardNum(rs.getInt(2));
+				matchVO.setResponseMb(rs.getString(3));
+				matchVO.setMatchDate(rs.getDate(4));
+				matchVO.setApproveDate(rs.getDate(5));
+
+				list.add(matchVO);
+			}
+			return list;
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
 	}
 	
 	public int approveCancleMatch(WRMatchVO matchVO, String str) {
@@ -268,10 +321,13 @@ public class WRMatchDAO {
 			String sql = "";
 			
 			if(str.equals("approve")) {
-				sql = "update WR_MATCH set MATCHING = '매칭완료', APPROVEDATE = sysdate "
+				sql = "update WR_MATCH set MATCHING = '매칭완료', CONFIRM = '미확인', APPROVEDATE = sysdate "
 						+ " where MNUM = ? and BOARDNUM = ? and REQUESTMB = ? and RESPONSEMB = ? ";
 			} else if(str.equals("cancle")){
-				sql = "update WR_MATCH set MATCHING = '매칭중', APPROVEDATE = NULL "
+				sql = "update WR_MATCH set MATCHING = '매칭중', CONFIRM = NULL, APPROVEDATE = NULL "
+						+ " where MNUM = ? and BOARDNUM = ? and REQUESTMB = ? and RESPONSEMB = ? ";
+			} else if(str.equals("confrim")) {
+				sql = "update VT_MATCH set CONFIRM = '확인' "
 						+ " where MNUM = ? and BOARDNUM = ? and REQUESTMB = ? and RESPONSEMB = ? ";
 			}
 				

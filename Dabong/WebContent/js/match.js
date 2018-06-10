@@ -43,6 +43,9 @@ function messageBtn(btn, messageData, messageUrl){
 			} else if(result.trim() == 'cancle'){
 				alert('매칭을 취소하였습니다.');
 				history.go(0);
+			} else if(result.trim() == 'confirm'){
+				alert('확인 되셨습니다.');
+				history.go(0);
 			}
 			
 		}

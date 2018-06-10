@@ -8,6 +8,7 @@ public class VTMatchVO {
 	private String requestMb;
 	private String responseMb;
 	private String matching;
+	private String confirm;
 	private Date matchDate;
 	private Date approveDate;
 	public int getmNum() {
@@ -40,6 +41,12 @@ public class VTMatchVO {
 	public void setMatching(String matching) {
 		this.matching = matching;
 	}
+	public String getConfirm() {
+		return confirm;
+	}
+	public void setConfirm(String confirm) {
+		this.confirm = confirm;
+	}
 	public Date getMatchDate() {
 		return matchDate;
 	}
@@ -52,4 +59,5 @@ public class VTMatchVO {
 	public void setApproveDate(Date approveDate) {
 		this.approveDate = approveDate;
 	}
+	
 }

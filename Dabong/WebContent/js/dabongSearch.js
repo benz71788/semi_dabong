@@ -17,7 +17,7 @@
 		});
 	}
     
-    function loadFiles(filepath){
+    function loadFiles(filepath, profilepath){
     	
     		// 데이터를 가져오기 위해 jQuery를 사용합니다
 	    // 데이터를 가져와 마커를 생성하고 클러스터러 객체에 넘겨줍니다
@@ -39,15 +39,10 @@
                 image: markerImage,	//마커 이미지를 설
                 position : new daum.maps.LatLng(position.lat, position.lng)
            		});
-            var iwContent = '<br><div style="padding:5px;">' + position.lat + ', ' + position.lng 
-            					+ '<br><a href="http://www.google.com" target="_self">인터넷 연결</a></div>';
             
-            var infowindow = new daum.maps.InfoWindow({
-                content: iwContent,	//content: position.html
-                removable : true
-            		});
-            	daum.maps.event.addListener(maks, 'click', makeOverListener(map, maks, infowindow));
-            	daum.maps.event.addListener(maks, 'mouseover', makeOutListener(infowindow));
+//            	daum.maps.event.addListener(maks, 'click', makeOverListener(map, maks, infowindow));
+            	daum.maps.event.addListener(maks, 'click', makeOverListener(profilepath, position.id));
+            	daum.maps.event.addListener(maks, 'mouseout', makeOutListener());
             return maks;
 
 	        });
@@ -59,17 +54,17 @@
     
     
  // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-    function makeOverListener(map, marker, infowindow) {
-        
+    function makeOverListener(pfilepath, uid) {
         return function() {
-            infowindow.open(map, marker);
+        	path = pfilepath + "?id=" + uid + '&type=other';
+        	window.open(path, '_new', 'width=500, height=700, top=100, left=250 scrollbars=yes')
         };
     }
 
     // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-    function makeOutListener(infowindow) {
+    function makeOutListener() {
         return function() {
-            infowindow.close();
+            window.close();
         };
     }
 

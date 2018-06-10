@@ -17,16 +17,24 @@ public class WRMyProfileAction implements Action{
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		ActionForward forward = new ActionForward();
-		String id = (String)session.getAttribute("id");
-		System.out.println(id);
+		String type = request.getParameter("type");
+		String id = "";
+		if(type == null){
+			id = (String)session.getAttribute("id");
+			forward.setPath("./user/profile/my_profile.jsp");
+		} else if(type.equals("other")) {
+			id = request.getParameter("id");
+			forward.setPath("./user/profile/other_profile.jsp");
+		}
 		WRMemberDAO memberDAO = new WRMemberDAO();
 		WRMemberVO memberVO = memberDAO.member_info(id);
 		int age = memberDAO.userAge(id);
+		String secret = memberVO.getSecret();
 		
-		forward.setPath("./user/profile/my_profile.jsp");
 		forward.setRedirect(false);
 		request.setAttribute("member", memberVO);
 		request.setAttribute("userAge", age);
+		session.setAttribute("secret", secret);
 		return forward;
 	}
 

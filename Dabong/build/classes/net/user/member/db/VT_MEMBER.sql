@@ -19,7 +19,7 @@ CREATE TABLE VT_MEMBER(
 	VSECRET VARCHAR2(15) NOT NULL
 )
 
-select * from vt_member;
+select * from vt_member where vid = 'qwer';
 
 select substr(VDATE, 4, 2) from vt_member group by VDATE;
 

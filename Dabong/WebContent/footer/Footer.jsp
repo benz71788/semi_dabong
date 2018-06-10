@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -113,11 +114,16 @@
 		<div class="footer-left">
 
 			<p class="footer-links">
-				<a href="#">HOME</a> · 
-				<a href="#">공지사항</a> · 
-				<a href="#">복지자참여</a> · 
-				<a href="#">봉사자참여</a> · 
-				<a href="#">정보마당</a>
+				 <c:if test="${sessionScope.id == null }">
+			    	<a href="./login.net" class="right-menu">HOME</a> .
+			    </c:if>
+			    <c:if test="${sessionScope.id != null }">
+			    	<a href="./boardMap.net" class="right-menu">HOME</a> .
+			    </c:if>
+				<a href="./NTBoardList.nt">공지사항</a> · 
+				<a href="./wboardList.wb">복지자참여</a> · 
+				<a href="./vboardList.vb">봉사자참여</a> · 
+				<a href="./news_board_album.news">정보마당</a>
 			</p>
 
 			<p>DABONG. &copy; 2018</p>

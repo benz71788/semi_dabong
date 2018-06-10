@@ -51,7 +51,7 @@ public class VTUpdateProcessAction implements Action{
 		out.println("<script>");
 		if(result != 0) {
 			out.println("alert('" + id + "님의 프로필이 수정 되었습니다.')");
-			out.println("location.href='userInfo.net'");
+			out.println("location.href='./vtMyProfile.net'");
 		} else {
 			out.println("alert('수정되지 않았습니다. 다시 입력해주세요');");
 			out.println("history.back();");

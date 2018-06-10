@@ -21,6 +21,9 @@ CREATE TABLE VT_BOARD(
 	PRIMARY KEY(VBNUM) 
 );
 
+
+alter table VT_BOARD add constraint volunteerId foreign key(vid) references VT_MEMBER(vid) on delete cascade;
+
 alter table VT_BOARD modify(vbcont varchar2(4000));
 
 insert into VT_BOARD (VBNUM, VID, VPASS, VNAME, VBSUB, VBCONT, VBWEEK, VBPOSTIME, VBAREA, VBRELIG, VBCHRAC, VBEXPER, VBEXCONT, VBCERTI, VBDATE, VBVISIT, VBREADCOUNT) VALUES
@@ -38,3 +41,5 @@ select * from (select rownum rnum, VBNUM, VID, VNAME, VBSUB, VBCONT,
 	VBEXCONT, VBDATE, VBVISIT, VBCERTI, VBREADCOUNT from 
 	(select * from VT_BOARD order by VBNUM desc))
 	where rnum>=1 
+	
+delete from VT_BOARD

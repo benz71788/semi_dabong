@@ -21,6 +21,9 @@ WBREADCOUNT NUMBER NOT NULL,
 PRIMARY KEY(WBNUM)
 );
 
+
+alter table WR_BOARD add constraint welfareId foreign key(wid) references WR_MEMBER(wid) on delete cascade;
+
 alter table WR_BOARD modify(wbweek varchar2(200));
 alter table WR_BOARD modify(wbhopeve varchar2(50));
 alter table WR_BOARD modify(wbcont varchar2(4000));
@@ -41,6 +44,7 @@ PRIMARY KEY(WRNUM)
 );
 select * from WR_REPLY;
 
+delete from WR_BOARD
 
 select WBNUM,WID,WPASS,WNAME,WBSUB,WBCONT, 
 				WBWEEK, WBPOSTIME, WBAREA, WBRELIG, WBGENV, WBHOPE, 

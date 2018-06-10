@@ -7,6 +7,137 @@
 <title>정보마당 리스트형</title>
 <link href="./css/css_kh/list.css" rel="stylesheet" type="text/css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+button.nbutton3,
+button.nbutton3::after {
+  -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+button.nbutton3 {
+  background: none;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  width: 200px;
+  margin: 20px;
+  margin-left: 29%;
+  padding: 10px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+button.nbutton3::before,
+button.nbutton3::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+button.nbutton3:hover {
+  color: dodgerblue;
+}
+
+.nbutton3::after {
+  height: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.nbutton3:hover:after {
+  height: 100%;
+}
+
+button.nbutton1,
+button.nbutton1::after {
+  -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+button.nbutton1 {
+  background: none;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  width: 200px;
+  margin: 20px;
+  margin-left: 29%;
+  padding: 10px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+button.nbutton1::before,
+button.nbutton1::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+button.nbutton1:hover {
+  color: dodgerblue;
+}
+
+.nbutton1::after {
+  height: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.nbutton1:hover:after {
+  height: 100%;
+}
+
+
+.img {
+  position: relative;
+  background-image: url(../../css/images/modal-1.jpg);
+  height: 300px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background: cover;
+}
+
+.img-cover {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.img .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+  text-align: center;
+}
+
+h6 {
+  margin-left: 21px;
+  margin-top: 0px;
+  margin-bottom: 17px;
+  font-size: 17px;
+}
+</style>
 <script>
 	$(document).ready(function(){
 		$('#1').on('click', function(){
@@ -125,5 +256,6 @@
 	</table>
 	<br>
 	<br>
+	<%@ include file="../../footer/Footer.jsp"%>
 </body>
 </html>

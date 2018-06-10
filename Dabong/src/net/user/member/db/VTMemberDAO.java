@@ -177,14 +177,15 @@ public class VTMemberDAO {
 		try {
 			con = ds.getConnection();
 			
-			String sql = "select VADDRLAT, VADDRLNG from VT_Member";
+			String sql = "select VID, VADDRLAT, VADDRLNG from VT_Member";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				JSONObject object = new JSONObject();
-				object.put("lat", rs.getDouble(1));
-				object.put("lng", rs.getDouble(2));
+				object.put("id", rs.getString(1));
+				object.put("lat", rs.getDouble(2));
+				object.put("lng", rs.getDouble(3));
 				array.add(object);
 			}
 		} catch(Exception e) {
