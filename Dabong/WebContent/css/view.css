@@ -3,7 +3,7 @@ h1{text-align:center}
 textarea{width:100%}
 .title{
 	background-color:rgb(30,144,255); 
-	height:30px; 
+	height:15px; 
 	}
  .my-hr1 {
     border: 0;
@@ -42,9 +42,9 @@ textarea{width:100%}
   color:#fff;
   border:none;
   position:relative;
-  height:60px;
-  font-size:1.6em;
-  padding:0 2em;
+  height:50px;
+  font-size:1em;
+  padding:0 1em;
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
@@ -84,10 +84,16 @@ textarea{width:100%}
 }
 .h2_style{
 	margin-left:50px;
+	color:white;
 }
 .h4_style{
 	text-align:right;
 	margin-right:100px;
+}
+.h4_style0{
+	text-align:right;
+	margin-right:100px;
+	color:white;
 }
 .h4_style1{
 	margin-left:30px;
@@ -95,4 +101,18 @@ textarea{width:100%}
 .bottom_button{
 	background:#5D5D5D; color:white; border:0; height:28px; line-height: 28px;
 border-radius:3px;
+}
+#qav_head {
+    background: #f3f3f3;
+    border: 1px solid #dedede;
+    padding: 10px;
+    margin-top: 15px;
+}
+.vbo_head {
+    position: relative;
+    padding: 0 0 10px;
+    width: auto;
+    border-bottom: 1px solid #eceff3;
+    line-height: 1.5em;
+    margin-bottom: 10px;
 }

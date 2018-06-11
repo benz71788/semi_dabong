@@ -26,5 +26,6 @@
 		</tr>
 		</table>
 	</form>
-		<br><br>
+		<br><br><br><br><br><br><br><br>
 </body>
+<%@ include file="../../footer/Footer.jsp" %>

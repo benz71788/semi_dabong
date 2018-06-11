@@ -14,12 +14,14 @@
 <script>
 
 </script>
+
 <style>
+	.container{margin:50px auto;}
 	.userinfo{margin:0px 30px 0px 0px;}
 	.userPost{clear:both;float:left;width:390px;}
-	.postbtn, .keybtn, .malebtn, .femalebtn{color:white;background-color:#1e90ff;width:250px;height:72px;font-size:30px;padding:10px;
+	.postbtn, .keybtn, .malebtn, .femalebtn{color:white;background-color:#1e90ff;width:235px;height:72px;font-size:30px;padding:10px;
 		border-radius:0px;margin:0px 0px 0px -5px;vertical-align: middle;}
-	.malebtn, .femalebtn{width:315px;background-color:white; color:#1e90ff;}
+	.malebtn, .femalebtn{width:305px;background-color:white; color:#1e90ff;}
 	.malebtn{margin:0px 5px 0px 0px;}
 	.userAddress{font-size:25px;height:72px;}
 	.userIntro{font-size:25px;height:160px;margin:0px 0px 50px 0px;}
@@ -80,8 +82,7 @@
 </script>
 </head>
 <body>
-	
-	
+	<%@ include file="../../header/Header.jsp" %>
 	<form method="post" class="personinfoform">
 		<div class="container user-container">
 		<h4 class="chapter">User Update</h4>
@@ -95,60 +96,60 @@
 						<span class="secrettext privatetext">비공개</span></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">아이디</span></td>
+					<td><span class="userinfo userinfo-id">아이디</span></td>
 					<td><input type="text" name="userId"  class="usertext userId" value="${member.id}"maxlength="30" readonly></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">비밀번호</span></td>
+					<td><span class="userinfo userinfo-pass">비밀번호</span></td>
 					<td><input type="password" name="userPass"  class="usertext userPass" maxlength="30" value="${member.pass}"required></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">이름</span></td>
+					<td><span class="userinfo userinfo-name">이름</span></td>
 					<td><input type="text" name="userName"  class="usertext userName" value="${member.name}" maxlength="30" readonly></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">생년월일</span></td>
+					<td><span class="userinfo userinfo-birth">생년월일</span></td>
 					<td><input type="text" name="userBirth" class="usertext userBirth" value="${member.resid}" maxlength="30" required><br></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">성별</span></td>
+					<td><span class="userinfo userinfo-gender">성별</span></td>
 					<td><input type="radio" name="userGender" class="radioMale" value="남자" maxlength="30" style="display:none;">
 						<span class="w3-button malebtn">남자</span>
 						<input type="radio" name="userGender" class="radioFemale" value="여자" maxlength="30" style="display:none;">
 						<span class="w3-button femalebtn">여자</span><br></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">직업</span></td>
+					<td><span class="userinfo userinfo-job">직업</span></td>
 					<td><input type="text" name="userJob" class="usertext userJob" value="${member.job}" maxlength="30" required><br></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">전화번호</span></td>
+					<td><span class="userinfo userinfo-phone">전화번호</span></td>
 					<td><input type="text" name="userPhone" class="usertext userPhone" value="${member.phone}" maxlength="30" required><br></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">이메일</span></td>
+					<td><span class="userinfo userinfo-email">이메일</span></td>
 					<td><input type="email" name="userEmail" class="usertext userEmail" value="${member.email}" maxlength="50" required><br></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">우편번호</span></td>
+					<td><span class="userinfo userinfo-post">우편번호</span></td>
 					<td><input type="text" name="userPost" class="usertext userPost" value="${member.post}" maxlength="30" readonly required>
 						<input type="button" class="w3-button postbtn" onclick="execDaumPostcode()" value="우편번호 찾기"></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">주소</span></td>
+					<td><span class="userinfo userinfo-address">주소</span></td>
 					<td><input type="hidden" name="addressLat" class="addressLat" value="${member.addrlat}">
 						<input type="hidden" name="addressLng" class="addressLng" value="${member.addrlng}">
 						<input type="text" name="userAddress" class="usertext userAddress" value="${member.address}" maxlength="50" required><br></td>
 				</tr>
 				<tr>
-					<td><span class="userinfo">특이사항</span></td>
+					<td><span class="userinfo userinfo-key">특이사항</span></td>
 					<td><c:if test="${sessionScope.user=='복지자'}">
 						<input type="hidden" name="userPain" class="usertext userPain" value="${member.pain}">
 						</c:if>
 						<input type="text" name="userKeyword" class="usertext userKeyword" value="${member.key}" maxlength="30" required>
 				</tr>
 				<tr>
-					<td><span class="userinfo">자기소개</span></td>
+					<td><span class="userinfo userinfo-intro">자기소개</span></td>
 					<td><textarea rows="3" cols="25" name="userIntro" class="usertext userIntro">${member.intro}</textarea></td>
 				</tr>
 				<tr>
@@ -161,6 +162,7 @@
 			</div>	
 		</div>
 	</form>
+	<br><br><br><br>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=535f52b28d45aec31e6fcacb00c8d23f&libraries=services,clusterer,drawing"></script>
 	<script src="./js/dapostcode.js"></script>

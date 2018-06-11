@@ -5,6 +5,9 @@
 <title>정보마당 글쓰기</title>
 <link href="./css/css_kh/write.css" rel="stylesheet" type="text/css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+
+</script>
 
 <%@ include file="../../header/Header.jsp" %>
 </head>
@@ -19,17 +22,17 @@
 			<td><div>게시자</div></td>
 			<td>
 				<input name="aname" id="aname" readOnly
-						type="text" size="6" maxlength="30" value="${sessionScope.id}" style="text-align:center">
+						type="text" size="6" maxlength="30" value="admin" style="text-align:center">
 			</td>
 		</tr>
 		<tr>
-			<td><div>제목</div></td>
+			<td>	<div>제목</div></td>
 			<td><input name=nesub id="nesub"
 					type="text" size="80" maxlength="100" value="">
 		</tr>
 		<tr>
 			<td><div>내용</div></td>
-			<td><pre><textarea name="necont" id="necont"  cols="67" rows="22"></textarea></pre>
+			<td><pre id="preview"><textarea name="necont" id="necont"  cols="67" rows="22"></textarea></pre>
 			</td>
 		</tr>
 		<tr>
@@ -46,8 +49,9 @@
 				<button type=submit class="nbutton1">등록</button>
 				<button type=reset class="nbutton1" onClick="history.go(-1);">취소</button>
 		</div>
-		
+
 </form>
-	<br><br><br>
+<br><br><br><br><br><br><br><br>
 </body>
+<%@ include file="../../footer/Footer.jsp" %>
 </html>

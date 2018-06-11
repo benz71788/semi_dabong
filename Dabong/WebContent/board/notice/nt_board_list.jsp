@@ -6,53 +6,45 @@
 <head>
 <meta charset="UTF-8">
 <title>공지 게시판</title>
-<link href="./css/css_sm/list.css" rel="stylesheet">
+<link href="./css/list.css" rel="stylesheet">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
-button{float:right;}
-body span {
-    display: inline;
+#qav_head {
+    background: url(./css/images/modal-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #dedede;
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
-form{
-  display: inline-block;
-  margin: 0 auto;
-    width: 1000px;
-    text-align:center;
+.vbo_head {
+    position: relative;
+    padding: 0 0 10px;
+    width: auto;
+    border-bottom: 1px solid #eceff3;
+    line-height: 1.5em;
+    margin-bottom: 10px;
 }
-#sub1{
-	text-align:right;
-	position:absolute;
-	right:470px;
-}
-#sub2{
-	text-align:center;
-	background-color:#C7D0D5;
-}
-#limit{
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow:ellipsis;
-  text-align:center
-}
-#searchForm{
-	text-align:center;
-}
-.enterdiv{white-space:normal}
 </style>
 </head>
 <body>
 <jsp:include page="../../header/Header.jsp" />
-	<div id="sub2">
-		<h2>공지사항 게시판</h2>
-	</div>
-	<div id="sub1">
-      <a href="./NTBoardList.nt">글목록</a>
-    </div>
+<br>
+<img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;공지사항
+	<p style="text-align:left;" id="qav_head" class="vbo_head"><br>
+		<strong style="font-size:40px; margin-left:9%">공지사항 </strong>
+	<br><br><br>
+	<a style="margin-left:9%">봉사자, 복지자에게 신속히 알려드릴 필요성이 있는 자료를 제공해 드립니다.</a><br><br><br></p>
+
       <br>
       <br>
+      
     <table class="list">
-      <tr>
-        <th width="8%"><div>번호</div></th>
+      <tr >
+        <th width="8%" ><div>번호</div></th>
         <th width="50%"><div>제목</div></th>
         <th width="14%"><div>작성자</div></th>
         <th width="17%"><div>날짜</div></th>
@@ -91,8 +83,8 @@ form{
       </tr>
     </c:if>         
           
-    <tr class="h30 lime center btn">
-      <td colspan=4 style="text-align: center">
+    <tr class="h30 lime center btn"  style="color:#6799FF;">
+      <td colspan=5 style="text-align: center">
         <c:if test="${page <= 1}">
           이전&nbsp;
         </c:if> 
@@ -114,14 +106,17 @@ form{
         <a href="./NTBoardList.nt?page=${page + 1}" class="pageAfter">&nbsp;다음</a>
         </c:if>
       </td>
-      <c:if test="${sessionScope.id == 'admin' }">
-      <td colspan="1" style="text-align: center">
-         <a href="./NTBoardWrite.nt">[글쓰기]</a>
-      </td>
-      </c:if>
     </tr>
   </table>
-    <br>
+  		<form action="NTBoardWrite.nt" method="get" style="height:28px;">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+  <center><input type="submit" id="button" value="글쓰기"></center>
+</form>
     <script type="text/javascript">
     
     
@@ -186,18 +181,34 @@ form{
 		
     });
     </script>
-      <div id="searchForm">
-            <select name="opt" id="select">
-              <option>선택</option>
-                <option value="0">제목</option>
-                <option value="1">내용</option>
-                <option value="2">제목+내용</option>
-               </select>
-            <input type="text" size="20" name="condition"/>&nbsp;
-            <input type="button" name="search" value="검색"/>
-             
-      </div>          
-          
+    <br>
+    <br>
+    <br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+    <table style="width:100%; text-align:center;">
+				<tr>
+					<th colspan="4"><select name="opt" id="select" size="1" style="height:34px; width:3; font-size:12px;" >
+
+							 <option>선택</option>
+                			 <option value="0">제목</option>
+                			 <option value="1">내용</option>
+                			 <option value="2">제목+내용</option>
+					</select>&nbsp;<input class="search__input" name="condition" type="text" placeholder="검색어를 입력하세요..">
+					<input style="background:#5D5D5D; color:white; border:1; height:35px; line-height: 28px;" 	type="submit" name="search"value="검색"/></th>
+
+				</tr>
+			</table>
+
 
 <%@ include file="../../footer/Footer.jsp" %>
 </body>

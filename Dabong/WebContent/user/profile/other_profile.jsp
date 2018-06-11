@@ -209,23 +209,18 @@ transition:0.3s;
 		<script src="./js/jquery-3.3.1.js"></script>
  	<script>
  		$(document).ready(function(){
- 			
  			var userUrl = "";
  			var boardUrl = "";
  			var updateUrl = "";
- 			var userData = "userId=" + '${sessionScope.id}';
+ 			var userData = "userId=" + '${member.id}';
  			
  			if('${sessionScope.user}' == '봉사자'){
- 				userUrl = 'vtProfileProcess.net';
- 				boardUrl = 'vboardDetailAction.vb';
- 				updateUrl = './vtUpdateView.net'
- 				updateDeleteMethod(updateUrl);
- 				
- 			} else if('${sessionScope.user}' == '복지자'){
  				userUrl = 'wrProfileProcess.net';
  				boardUrl = 'wboardDetailAction.wb';
- 				updateUrl = './wrUpdateView.net';
- 				updateDeleteMethod(updateUrl);
+ 				
+ 			} else if('${sessionScope.user}' == '복지자'){
+ 				userUrl = 'vtProfileProcess.net';
+ 				boardUrl = 'vboardDetailAction.vb';
  			}
  			
  			$.getJSON(userUrl, userData, function(list){

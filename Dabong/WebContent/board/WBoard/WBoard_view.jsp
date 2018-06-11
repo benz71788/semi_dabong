@@ -6,31 +6,7 @@
 <head>
 
 <title>복지자 참여 내용 확인하기</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="./css/dajoin.css" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="./css/view.css" />
-<style>
-h1{text-align:center}
-.wb{border-collapse:collapse;}
-textarea{width:100%}
-#qav_head {
-    background: #f3f3f3;
-    border: 1px solid #dedede;
-    padding: 10px 20px;
-    margin-top: 15px;
-}
-.vbo_head {
-  display:block;
-    position: relative;
-    padding: 0 0 10px;
-    width: auto;
-    border-bottom: 1px solid #eceff3;
-    line-height: 1.5em;
-    margin-bottom: 10px;
-}
-
-
-</style>
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/match.js"></script>
 <script>
@@ -45,65 +21,57 @@ textarea{width:100%}
 </head>
 <body>
 <%@ include file="../../header/Header.jsp" %>
+	<img style="margin-left:10%; margin-top:3%;" src="images/home(dabong).png">&nbsp;>&nbsp;복지자참여
+	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
+		<strong style="font-size:40px; margin-left:9%">복지자 참여 </strong>
+	<br><br><br>
+	<a style="margin-left:9%">복지자가 직접 등록한 복지서비스 게시판 입니다.</a><br><br><br></p>
+	<table class="name">
+	<tr class="title">
 		<c:set var="bd" value="${boardDetail}"/>
-		
-	<header id="qav_head" class="vbo_head">
-			<h2>▶${bd.wbsub}</h2>
-		
-	
-			<div style="padding:10px;"> ${bd.wname} /${bd.wbdate } /조회 ${bd.wbreadcount}</div>
-	</header>
-	<c:if test="${sessionScope.user == '봉사자' || sessionScope.id == 'admin'}">
-		<form class="match-form" method="post" action="wrSendMatch.net">
-			<input type="hidden" class="boardNum" name="boardNum" value="${bd.wbnum}">
-			<input type="hidden" class="requestMB" name="requestMB" value="${sessionScope.id}">
-			<input type="hidden" class="responseMB" name="responseMB" value="${bd.wid}">
-			<input type="hidden" class="choiceVal" name="choiceVal" value="choice">
-			<input type="submit" class="button matchbtn" value="매칭하기">
-		</form>
-	</c:if>
-	<br>
-	<hr>
-		<table class="wb" border="1" >
-		<tr><th colspan="2">복지자 정보</th>
-	</tr>
-	<tr>
-			<td>복지가능 요일</td>
-			<td>${bd.wbweek}</td>
-	</tr>
-		<tr>
-			<td>복지가능 시간</td>
-			<td>${bd.wbpostime}</td>
+		<td>
+			<h2 class="h2_style">${bd.wbsub}</h2>
+		</td>
+		<td>
+		<td>
+		<h4 class="h4_style0">${bd.wbdate}</h4>
+		</td>
 		</tr>
 		<tr>
-			<td>복지가능 지역</td>
-			<td>${bd.wbarea}</td>
+		<td>
+		<h4 class="h4_style1">${bd.wname}</h4>
+		</td>
+		<td>
+		<h4 class="h4_style">조회${bd.wbreadcount}</h4>
+		</td>
 		</tr>
-		<tr>
-			<td>종교</td>
-			<td>${bd.wbrelig}</td>
-		</tr>
-		<tr>
-			<td>봉사자 성별</td>
-			<td>${bd.wbgenv}</td>
-		</tr>
-		<tr>
-			<td>희망 복지</td>
-			<td>${bd.wbhope}</td>
-	</tr>
-	<tr>
-		
-			<td>희망 봉사가 경력</td>
-			<td>${bd.wbhopeve}</td>
-			</tr>
 		</table>
+		<hr class="my-hr1">
+		<br>	
+		<table class="blueone">
+		<tr><th>복지자 정보</th>
+	</tr>
+	<tr>
+		<td>복지가능 요일</td><td>복지가능 시간</td><td>복지가능 지역</td><td>종교</td><td>복지자 성격</td><td>희망 복지</td><td>희망 봉사가 경력</td>
+	</tr>
+		<tr>
+			<td>${bd.wbweek}</td><td>${bd.wbpostime}</td><td>${bd.wbarea}</td><td>${bd.wbrelig}</td><td>${bd.wbgenv}</td>
+			<td>${bd.wbhope}</td><td>${bd.wbhopeve}</td>
+		</tr>
+		</table>
+		<br>
+		<br>
+		<br>
+		<table class="name">
+		<tr>
+		<td>
+		<div  class="middle">
 
 			<pre>${bd.wbcont}</pre>
 			<c:if test="${!empty boardDetail.wbfile}">
 			<img src="./boardupload/${boardDetail.wbfile}" width="300px" height="300px">
 			</c:if>
 		<h5>첨부 파일 다운로드</h5>
-		<hr>
 			<c:if test="${!empty boardDetail.wbfile}">
 			
 				<img src="./images/down.png" width="10px">
@@ -111,23 +79,44 @@ textarea{width:100%}
 					${bd.wbfile}</a>
 			
 			</c:if>
-
-			
-			<hr>
-			<%-- <%@ include file="/board/WBoard/form5.jsp" %>--%>
-			<table style="height:28px; ">
-				<tr >
+			</div>
+			<br>
+			<br>
+			<br>
+		</td>
+		</tr>
+		</table>
+		<hr class="my-hr1">
+				<c:if test="${sessionScope.user == '봉사자' || sessionScope.id == 'admin'}">
+			<form class="match-form" method="post" action='wrSendMatch.net'>
+				<input type="hidden" class="boardNum" name="boardNum" value="${bd.wbnum}">
+				<input type="hidden" class="requestMB" name="requestMB" value="${sessionScope.id}">
+				<input type="hidden" class="responseMB" name="responseMB" value="${bd.wid}">
+				<input type="hidden" class="choiceVal" name="choiceVal" value="choice">
+				<center><input type="submit" class="button matchbtn" value="매칭하기"></center>
+			</form>
+		</c:if>
+	<br>
+			<table style="margin:auto;">
+				
+				<tr>
 			<td colspan="2" class="center"  >
 				<c:if test="${((sessionScope.user == '복지자') && (sessionScope.id == boardDetail.wid)) || (sessionScope.id == 'admin')}">
-					<input type="button" onclick="location.href='./wboardModifyView.wb?num=${boardDetail.wbnum}'" style="background:#5D5D5D; color:white; border:1; height:28px; line-height: 28px;" value="수정" >&nbsp;&nbsp;
+					<input type="button" onclick="location.href='./wboardModifyView.wb?num=${boardDetail.wbnum}'" class="bottom_button"value="수정" >&nbsp;&nbsp;
 					
-					<input type="button" onclick="location.href='./wboardDelete.wb?num=${boardDetail.wbnum}'" style="background:#5D5D5D; color:white; border:1; height:28px; line-height: 28px;" value="삭제">&nbsp;&nbsp;
+					<input type="button" onclick="location.href='./wboardDelete.wb?num=${boardDetail.wbnum}'" class="bottom_button"value="삭제">&nbsp;&nbsp;
 				</c:if>
-				<input type="button" onclick="location.href='./wboardList.wb'" style="background:#5D5D5D; color:white; border:1; height:28px; line-height: 28px;" value="목록">&nbsp;&nbsp;
+				<input type="button" onclick="location.href='./wboardList.wb'" class="bottom_button"value="목록">&nbsp;&nbsp;
 				
-			</td>
+		</td>
 		</tr>
 	</table>
-	
+	<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<%@ include file="../../footer/Footer.jsp" %>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link href="./css/css_sm/form.css" rel="stylesheet">
+<link href="./css/form.css" rel="stylesheet">
 <script>
 	$(document).ready(function(){
 		
@@ -17,52 +17,64 @@
 </script>
 <body>
 <jsp:include page="../../header/Header.jsp" />
-
+<br>
+		<br>
+		<br>
 	<form action="./NTBoardModifyAction.nt" method="post" name="boardform">
 	<input type="hidden" name="num" value="${param.num}">
-		<table>
+		<table id="table" >
 			<tr class="center">
-				<th colspan="2">공지 게시판 - 수정</th>
+				<th class="title" colspan="2"><h3 style="color:white;">공지 게시판 수정</h3></th>
 			</tr>
 			<tr>
-				<td><div>글쓴이</div></td>
+				<td><div id="center">글쓴이</div></td>
 				<td>
-					<input type="text" name="ANAME" id="aname" maxlength="30" value="admin" readOnly>
+					<input type="text" name="ANAME" id="aname" value="admin" readOnly>
 				</td>
 			</tr>
 			<tr>
-				<td><div>제목</div></td>
+				<td><div id="center">제목</div></td>
 				<td><input name="ntsub" id="ntsub"
-					type="text" size="50" maxlength="100" value="${boardData.ntsub}">
+					type="text" maxlength="100" value="${boardData.ntsub}">
 			</tr>
 			<tr>
-				<td><div>내용</div></td>
+				<td><div id="center">내용</div></td>
 				<td><textarea name="ntcont" id="ntcont" 
 						cols="67" rows="15">${boardData.ntcont}</textarea>
 				</td>
 			</tr>
 			<tr>
-				<td><div>기존 파일</div></td>
+				<td><div id="center">기존 파일</div></td>
 					<td>
-					<input type="hidden" id="upfile" name="ntfiles" value="${boardData.ntfiles}">${boardData.ntfiles}
+					<input type="hidden" id="ntfiles" name="ntfiles" value="${boardData.ntfiles}">${boardData.ntfiles}
 					</td>
 			</tr>
 			<tr>
-				<td><div>수정 파일</div></td>
+				<td><div id="center">수정 파일</div></td>
 					<td>
-					<input type="file" id="upfile1" name="ntfiles1">
+					<input type="file" id="ntfiles" name="ntfiles1">
 					</td>
 			</tr>
-			
+			</table>
+			<br>
 			
 		
-		<tr class="center">
-			<td colspan="2" class="h30 lime">
-				<input type="submit" value="등록">
-				<input type="reset"	value="취소"	onClick="history.go(-1)">
-			</td>
-		</tr>
-		</table>
+		<table style="margin:auto;">
+			<tr>
+			<th>
+			<input style="background:#5D5D5D; color:white; border:0; height:28px; line-height: 28px; border-radius:3px;"type=submit value="등록">
+			<input style="background:#5D5D5D; color:white; border:0; height:28px; line-height: 28px; border-radius:3px;"type=reset value="취소" onClick="history.go(-1)">
+			</th>
+			</tr>
+	</table>
+			<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	</form>
 <jsp:include page="../../footer/Footer.jsp" />
 </body>

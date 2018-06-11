@@ -326,7 +326,7 @@ public class WRMatchDAO {
 			} else if(str.equals("cancle")){
 				sql = "update WR_MATCH set MATCHING = '매칭중', CONFIRM = NULL, APPROVEDATE = NULL "
 						+ " where MNUM = ? and BOARDNUM = ? and REQUESTMB = ? and RESPONSEMB = ? ";
-			} else if(str.equals("confrim")) {
+			} else if(str.equals("confirm")) {
 				sql = "update VT_MATCH set CONFIRM = '확인' "
 						+ " where MNUM = ? and BOARDNUM = ? and REQUESTMB = ? and RESPONSEMB = ? ";
 			}

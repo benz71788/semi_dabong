@@ -57,7 +57,7 @@
     function makeOverListener(pfilepath, uid) {
         return function() {
         	path = pfilepath + "?id=" + uid + '&type=other';
-        	window.open(path, '_new', 'width=500, height=700, top=100, left=250 scrollbars=yes')
+        	window.open(path, '_new', 'width=500, height=720, top=100, left=250 scrollbars=yes')
         };
     }
 

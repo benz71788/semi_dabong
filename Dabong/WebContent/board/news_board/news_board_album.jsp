@@ -1,35 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>정보마당 앨범형</title>
 <script src="./js/jquery-3.3.1.js"></script>
-<link href="./css/css_kh/album.css" rel="stylesheet">
-
-<script>	//버튼클릭 스크립트
+<link href="./css/album.css" rel="stylesheet" type="text/css">
+<script>   //버튼클릭 스크립트
 $(document).ready(function(){
-	$('#1').on('click', function(){
-		location.href="./news_board_album.news";
-	});
-	$('#2').on('click', function(){
-		location.href="./news_board_list.news";
-	});
+   $('#1').on('click', function(){
+      location.href="./news_board_album.news";
+   });
+   $('#2').on('click', function(){
+      location.href="./news_board_list.news";
+   });
 });
 </script>
 
-<script>	//최상단 스크립트
+<script>   //최상단 스크립트
 $( document ).ready( function() {
   $( window ).scroll( function() {
-    if ( $( this ).scrollTop() > 200 ) {
+    if ( $( this ).scrollTop() > 50 ) {
       $( '.top' ).fadeIn();
     } else {
       $( '.top' ).fadeOut();
     }
   } );
   $( '.top' ).click( function() {
-    $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+    $( 'html, body' ).animate( { scrollTop : 0 }, 1000 );   //스크롤 올라가는 시간
     return false;
   } );
 });
@@ -37,8 +36,9 @@ $( document ).ready( function() {
 
 <script>   //무한스크롤 스크립트
 $( document ).ready( function() {
-	var page = 2;
+   var page = 2;
    $(window).scroll(function(){
+        setTimeout(function() {      //달라붙는 시간 설정   
       if($(window).scrollTop() == $(document).height() - $(window).height()){
             var sendData = 'page=' + page;
             var test= 1;
@@ -53,9 +53,9 @@ $( document ).ready( function() {
                   + '<a href="./NewsBoardDetailAction.news?num=' + item.nenum + '">';
                   
                   if(item.files != null){
-                	  output += '<img src="boardupload/' +item.files +'"><br></a>';
+                     output += '<img src="boardupload/' +item.files +'"><br></a>';
                   } else if(item.files == null){
-                	  output += '<img src="boardupload/dabong.JPG"><br></a></div>';
+                     output += '<img src="boardupload/dabong.JPG"><br></a></div>';
                   }
                   
                   output += '<div class="target" style="font-weight:bold;" >'
@@ -74,7 +74,8 @@ $( document ).ready( function() {
                $('tbody').append(output);
             });
             page = page + 1;
-      }
+         }
+      }, 1000);   //1초 뒤
    });
 });
 </script>
@@ -82,22 +83,22 @@ $( document ).ready( function() {
 
 <%@ include file="../../header/Header.jsp" %>
 </head>
-<body>	
-		<h1>정보마당</h1>
-		<span>
-		<button id="1" class="nbutton1">앨범형</button>
-		<button id="2" class="nbutton1">리스트형</button>
-		</span>
-		<c:if test="${sessionScope.id == 'admin'}">
-		<a href="./news_board_write.news" style="text-align: center" id="write">
-		<button class="nbutton3">글쓰기</button><br>
-		</a>
-		</c:if>
-	<%--검색 --%>	
-	<span class="pageNum" style="line-height:60px"><font size=4>총 게시물 수 <b style="color:#1E90FF"> ${listcount}</b></font></span>
+<body>   
+      <h1>정보마당</h1>
+      <span>
+      <button id="1" class="nbutton1">앨범형</button>
+      <button id="2" class="nbutton1">리스트형</button>
+      </span>
+      <c:if test="${sessionScope.id == 'admin' || sessionScope.id == 'qwer'}">
+      <a href="./news_board_write.news" style="text-align: center" id="write">
+      <button class="nbutton3">글쓰기</button><br>
+      </a>
+      </c:if>
+   <%--검색 --%>   
+   <span class="pageNum" style="line-height:60px"><font size=4>총 게시물 수 <b style="color:#1E90FF"> ${listcount}</b></font></span>
       <form action="news_board_album.news" method="get" id="searchForm">
             <select name="opt">
-            	<option value="0">선택</option>
+               <option value="0">선택</option>
                 <option value="1">제목</option>
                 <option value="2">내용</option>
                 <option value="3">제목+내용</option>
@@ -107,53 +108,53 @@ $( document ).ready( function() {
       </form>
       <br>
       
-	<table class="album">
-		<c:set var="num" value="${listcount-(page-1) * 12}" />
-		<%--4개 씩 --%>
-		<c:set var="i" value="0" />
-		<c:set var="j" value="4" />
-		<c:forEach var="b" items="${boardlist}">
-		
-		<c:if test="${i % j == 0}">
-			<tr>
-		</c:if>
-				<td style="text-align:center">
-					<c:set var="num" value="${num-1}" /> <%-- num = num - 1 --%>
-					<%-- 첨부파일 썸네일 --%>
-						<div style="text-align:center">
-							<a href="./NewsBoardDetailAction.news?num=${b.nenum}">
-								<c:if test="${b.nefiles != null}">
-									<img src="./boardupload/${b.nefiles}">
-								</c:if> 
-						
-					<%--첨부 파일이 없을 때 썸네일 이미지 --%>
-								<c:if test="${b.nefiles == null}">
-								<img src="./boardupload/dabong.JPG">
-								<br>
-								</c:if>
-							</a>
-						</div>
-					
-					<%--게시물 형식 --%>
-					<div class="target" style="text-align:center; font-weight:bold">
-						<a href="./NewsBoardDetailAction.news?num=${b.nenum}">
-							<font size=4>${b.nesub}</font></a>
-					</div>
-					<div style="text-align: center"><font size=3>조회 ${b.nevisit} | ${b.nedate}</font></div>
-					<div style="text-align: center"><font size=2>${b.aname}</font> 
-					<img src="./boardupload/admin.jpg" id="jpg">
-					</div>
-					<div class="enterdiv">
-						<br><br>
-					</div>
-				</td>
-			<c:if test="${i % j == j - 1}">
-			
-			</c:if>
-			<c:set var="i" value="${i + 1}"/>
-		</c:forEach>
-		
-		<!-- 레코드가 없으면 -->
+   <table class="album">
+      <c:set var="num" value="${listcount-(page-1) * 12}" />
+      <%--4개 씩 --%>
+      <c:set var="i" value="0" />
+      <c:set var="j" value="4" />
+      <c:forEach var="b" items="${boardlist}">
+      
+      <c:if test="${i % j == 0}">
+         <tr>
+      </c:if>
+            <td style="text-align:center">
+               <c:set var="num" value="${num-1}" /> <%-- num = num - 1 --%>
+               <%-- 첨부파일 썸네일 --%>
+                  <div style="text-align:center">
+                     <a href="./NewsBoardDetailAction.news?num=${b.nenum}">
+                        <c:if test="${b.nefiles != null}">
+                           <img src="./boardupload/${b.nefiles}">
+                        </c:if> 
+                  
+               <%--첨부 파일이 없을 때 썸네일 이미지 --%>
+                        <c:if test="${b.nefiles == null}">
+                        <img src="./boardupload/dabong.JPG">
+                        <br>
+                        </c:if>
+                     </a>
+                  </div>
+               
+               <%--게시물 형식 --%>
+               <div class="target" style="text-align:center; font-weight:bold">
+                  <a href="./NewsBoardDetailAction.news?num=${b.nenum}">
+                     <font size=4>${b.nesub}</font></a>
+               </div>
+               <div style="text-align: center"><font size=3>조회 ${b.nevisit} | ${b.nedate}</font></div>
+               <div style="text-align: center"><font size=2>${b.aname}</font> 
+               <img src="./boardupload/admin.jpg" id="jpg">
+               </div>
+               <div class="enterdiv">
+                  <br><br>
+               </div>
+            </td>
+         <c:if test="${i % j == j - 1}">
+         
+         </c:if>
+         <c:set var="i" value="${i + 1}"/>
+      </c:forEach>
+      
+      <!-- 레코드가 없으면 -->
 		<c:if test="${listcount == 0}">
 			<tr>
 				<td style="text-align: center" colspan="4">
@@ -162,11 +163,10 @@ $( document ).ready( function() {
 			</tr>
 		</c:if>
 	</table>
-	<div class="a">
-		<a href="#" class="top"><img src="./boardupload/top.png" class="du"></a>
-	</div>
-	
+	<button onclick="topFunction()" class='top' id="myBtn" title="Go to top">Top</button>
+
 	<br>
-	<%@ include file="../../footer/Footer.jsp"%>
+
 </body>
+<%@ include file="../../footer/Footer.jsp" %>
 </html>

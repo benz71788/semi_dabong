@@ -21,6 +21,7 @@ public class WRProfileListAction implements Action{
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		String userId = request.getParameter("userId");
+		System.out.println(userId);
 		
 		WBoardDAO boardDAO = new WBoardDAO();
 		List<WBoardVO> list = new ArrayList<WBoardVO>();

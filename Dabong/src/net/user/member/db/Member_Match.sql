@@ -31,6 +31,10 @@ create table WR_MATCH(
 alter table vt_match rename column VMNUM to MNUM;
 alter table wr_match rename column WMNUM to MNUM;
 
+select BOARDNUM from VT_MATCH minus select VBNUM from VT_BOARD;
+
+
+
 alter table VT_MATCH add constraint volunteerBoardNum foreign key(BOARDNUM) references VT_BOARD(VBNUM) on delete cascade;
 alter table WR_MATCH add constraint welfareBoardNum foreign key(BOARDNUM) references WR_BOARD(WBNUM) on delete cascade;
 

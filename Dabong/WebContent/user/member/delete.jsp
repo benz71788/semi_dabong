@@ -15,8 +15,12 @@
 			width: 200px;
 			height: 200px;
 			}
+	
+	.delete-container{margin: 50px auto;}
+	.delete-table{display:inline-block; margin: 50px auto;}
+	.info-pass{font-size:28pt;vertical-align: middle;}
 	.deletePass{
-		width: 40%;
+		width: 70%;
 	}
 </style>
 <script>
@@ -34,15 +38,16 @@
 </script>
 </head>
 <body>
+	<%@ include file="../../header/Header.jsp" %>
 	<form method="post">
-		<div class="container gender-container">
-			<h4 class="chapter">${sessionScope.id}님의 아이디</h4>
+		<div class="container delete-container">
+			<h4 class="chapter">${sessionScope.id}님</h4>
 			<input type="hidden" name="userId" class="usertext deleteId" value="${sessionScope.id}">
 			<h1 class="select-name">정말 계정을 삭제하시겠습니까?</h1><br><br>
-			<table>
+			<table class="delete-table">
 				<tr>
-					<td colspan="2"><span>비밀번호를 입력하세요.</span>
-						<input type="password" name="userPass"  class="usertext deletePass" maxlength="30" required></td>
+					<td colspan="2"><span class="info-pass">비밀번호</span>
+						<input type="password" name="userPass"  class="usertext deletePass" placeholder="비밀번호를 입력하세요." maxlength="30" required></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" class="w3-button w3-light-grey deletebtn" value="삭제">
@@ -53,5 +58,6 @@
 			</table>
 		</div>
 	</form>
+	<%@ include file="../../footer/Footer.jsp" %>
 </body>
 </html>

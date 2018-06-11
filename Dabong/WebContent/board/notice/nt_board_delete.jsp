@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./css/css_sm/form.css" rel="stylesheet">
+<link href="./css/form.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="../../header/Header.jsp" />

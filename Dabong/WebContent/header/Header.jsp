@@ -467,7 +467,7 @@ span.hover {
 	display: none;
 	position: absolute;
 	background-color: #f1f1f1;
-	min-width: 350px;
+	min-width: 400px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }
@@ -753,7 +753,7 @@ hr {
 		$('.dropdown3').hover(function(){
 			$('.total-count2').empty();
 			$('.alarmBlind').empty();
-			var count = '';
+			var count = 0;
 			$.getJSON(alarmUrl, sendData, function(alarm){
 				$(alarm).each(function(index, item){
 					var output = '';
@@ -817,7 +817,7 @@ hr {
   </div>
   <c:if test="${sessionScope.id != null}">
   		<div class="dropdown3" style="height: 15px;">
-			<i class="fa fa-envelope"></i>
+			<i class="fa fa-bell"></i>
 			<div class="dropdown-content3">
 				<div class="drop-title"><strong class="total-count2"></strong>개의 알림이 있습니다.</div>
 				<hr>

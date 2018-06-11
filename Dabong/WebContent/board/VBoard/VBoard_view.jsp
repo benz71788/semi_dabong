@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="./css/dajoin.css" rel="stylesheet">
  <link type="text/css" rel="stylesheet" href="./css/view.css" />
 <title>봉사자 참여 내용 확인하기</title>
 <script src="./js/jquery-3.3.1.js"></script>
@@ -19,8 +18,11 @@
 </head>
 <body>
 <%@ include file="../../header/Header.jsp" %>
-<br>
-<h1>봉사자 참여</h1>
+	<img style="margin-left:10%; margin-top:3%;" src="./image/home(dabong).png">&nbsp;>&nbsp;봉사자참여
+	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
+		<strong style="font-size:40px; margin-left:9%">봉사자 참여 </strong>
+	<br><br><br>
+	<a style="margin-left:9%">봉사자가 직접 등록한 복지서비스 게시판 입니다.</a><br><br><br></p>
 <table class="name">
 <tr class="title">
 		<c:set var="bd" value="${boardDetail}"/>
@@ -28,7 +30,7 @@
 <h2 class="h2_style">${bd.vbsub}</h2>
 </td>
 <td>
-<h4 class="h4_style">${bd.vbdate } </h4>
+<h4 class="h4_style0">${bd.vbdate } </h4>
 </td>
 </tr>
 <tr>
@@ -107,6 +109,9 @@
 		<br>
 		<br>
 		<br>
+		<br>
+<br>
+<br>
 	
 </body>
 </html>

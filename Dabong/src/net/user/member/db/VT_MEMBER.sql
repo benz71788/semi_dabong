@@ -36,7 +36,7 @@ select AGE, count(AGE) from
 	(select (FLOOR((MONTHS_BETWEEN(SYSDATE, TO_DATE(VRESID, 'YYYYMMDD'))/12)/10) * 10) AS AGE FROM VT_MEMBER) 
 		group by AGE order by AGE;
 
-update vt_member set vdate = to_date('2018-03-17 10:13:15','YYYY-MM-DD HH24:MI:ss') where vid='sdfg';
+update vt_member set vdate = to_date('2018-03-05 10:13:15','YYYY-MM-DD HH24:MI:ss') where vid ='qwe10';
 
 select * from 
 	(select rownum num, VID, VPASS, VNAME, VRESID, VGENDER, VJOB,

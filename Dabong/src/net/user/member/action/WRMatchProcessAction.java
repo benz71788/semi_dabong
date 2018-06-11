@@ -21,6 +21,10 @@ public class WRMatchProcessAction implements Action{
 		String responseMb = request.getParameter("responseMB");
 
 		System.out.println(state);
+		System.out.println(mNum);
+		System.out.println(boardNum);
+		System.out.println(requestMb);
+		System.out.println(responseMb);
 		
 		WRMatchDAO matchDAO = new WRMatchDAO();
 		WRMatchVO matchVO = new WRMatchVO();

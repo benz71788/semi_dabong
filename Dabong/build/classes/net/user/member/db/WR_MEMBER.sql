@@ -30,6 +30,9 @@ select month, count(month) from
 select AGE, count(AGE) from
 	(select (FLOOR((MONTHS_BETWEEN(SYSDATE, TO_DATE(WRESID, 'YYYYMMDD'))/12)/10) * 10) AS AGE FROM WR_MEMBER) 
 		group by AGE order by AGE;
+
+update wr_member set wdate = to_date('2018-03-25 10:13:15','YYYY-MM-DD HH24:MI:ss') where wname = '박미르';
+
 		
 update WR_MEMBER set WRESID = 19951021 where WID = 'admin111';
 

@@ -14,7 +14,7 @@ create table NT_BOARD(
 
 select * from NT_BOARD;
 
-delete from NT_BOARD;
+delete from NT_BOARD where ntnum = 23;
 
 select * from(select rownum rnum, NTNUM, AID,  ANAME, NTSUB, NTCONT, NTFILES,NTDATE, NTVISIT
 	from NT_BOARD order by ntdate desc)

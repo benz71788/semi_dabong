@@ -21,6 +21,11 @@ CREATE TABLE VT_BOARD(
 	PRIMARY KEY(VBNUM) 
 );
 
+select VID from VT_BOARD minus select VID from VT_MEMBER;
+
+select * from VT_BOARD where VID = 'qwer';
+
+delete from VT_BOARD where VID = 'qwer';
 
 alter table VT_BOARD add constraint volunteerId foreign key(vid) references VT_MEMBER(vid) on delete cascade;
 

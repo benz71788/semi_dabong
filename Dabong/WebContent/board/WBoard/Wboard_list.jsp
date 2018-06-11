@@ -6,6 +6,9 @@
 <html>
 <head>
 <title>복지자 게시판</title>
+<link type="text/css" rel="stylesheet" href="./css/Wboard_list.css" />
+<link rel="stylesheet" href="./css/style(wboard).css">
+<link rel="stylesheet" href="./css.normalize.css">
 <script src="./js/jquery-3.3.1.js"></script>
 <script>
 	$(document).ready(function() {
@@ -97,95 +100,29 @@
 	
 </script>
 
-<script>
-$(document).on("click","#suc",function(){
-	alert('매칭이 완료된 게시글 입니다.');
-});
-</script>
-<style>
-table{margin:0 auto;}
-th{}
-td{font-family:돋음; font-size:14; height:36px;}
-td:nth-child(2n+1), .center{text-align:center}	  
-.writer{border-width:3px;}
-.title{background-color:rgb(30,144,255); height:50px;}
-td:hover{background-color:#F8F8F8} 	
-a{text-decoration:none}
-.btn {
-    border: none;
-    outline: none;
-    padding: 10px 18px;
-  
-    cursor: pointer;
-    font-size: 18px;
-    word-spacing:5px;
-}
-
-
-.active, .btn a:hover {
-    background-color: #666;
-    color: white;
-}
-
-h1{text-align:center}
-.radio{
-    width: 12px;
-    height: 12px;
-    display: inline-block;
-    border: 1px solid #e2e2e2;
-
-    border-radius: 50%;
-    vertical-align: top;
-    margin-top: 0px;
-    margin-right:3px;
-    background: #eceff3;
-}
-
-#qav_head {
-    background: #f3f3f3;
-    border: 1px solid #dedede;
-    padding: 10px;
-    margin-top: 15px;
-}
-.vbo_head {
-   
-    position: relative;
-    padding: 0 0 10px;
-    width: auto;
-    border-bottom: 1px solid #eceff3;
-    line-height: 1.5em;
-    margin-bottom: 10px;
-}
-#head1{
-padding:10px;
-}
-
-</style>
 </head>
 <body>
-
 	<%@ include file="../../header/Header.jsp" %>
 
 	<br>
-	<div style="position:relative;float:left; top:19px;"><a href="./wboardList.wb"><img src="./images/logo.png" width="60px">
-				</a></div>
-	<h1 style="text-align:left;" id="head1">복지자 참여</h1>
-	<p style="text-align:left;" id="qav_head" class="vbo_head">복지자가 직접 등록한 복지서비스 게시판 입니다.</p>
-	
+	<img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;봉사자참여
+	<p style="text-align:left;" id="qav_head" class="vbo_head"><br>
+		<strong style="font-size:40px; margin-left:9%">복지자 참여 </strong>
+	<br><br><br>
+	<a style="margin-left:9%">복지자가 직접 등록한 복지서비스 게시판 입니다.</a><br><br><br></p>
 	<div id="searchForm" style="text-align: center">
 		<form action="wboardList.wb" method="get">
-			
-			<table style="width:100%; text-align:left;">
+			<table style="width:100%; text-align:center;">
 				<tr>
-					<th colspan="4"><select name="opt" size="1" style="height:28px; width:3; font-size:12px;" >
+					<th colspan="4"><select name="opt" size="1" style="height:36px; width:3; font-size:12px; vertical-align: middle;" >
 
 							<option value="0">제목</option>
 							<option value="1">내용</option>
 							<option value="2">제목+내용</option>
 							<option value="3">글쓴이</option>
 
-					</select>&nbsp;<input  style="height:23px;" type="text" size="20" name="condition" /><input
-					style="background:#5D5D5D; color:white; border:1; height:30px; line-height: 28px;" 	type="submit" value="검색" /></th>
+					</select>&nbsp;<input class="search__input" name="condition" type="text" placeholder="검색어를 입력하세요..">
+					<input style="background:#5D5D5D; color:white; border:1; height:38px; line-height: 28px; vertical-align: middle;" 	type="submit" value="검색"/></th>
 
 				</tr>
 
@@ -193,44 +130,137 @@ padding:10px;
 			</table>
 		</form>
 	<br>
-		<button id="show" style="background:#5D5D5D; color:white; border:1; height:28px; line-height: 28px;">상세검색</button>
+		<button id="show" style="background:#5D5D5D; color:white; border:0; height:28px; line-height: 28px; width: 200px; border-radius: 8px; font-size: 15px;">상세검색</button>
 		<br>
 		<br>
 
 		<form  action="wboardList.wb" method="get" class="page" style="display: none">
-			<table style="height:100px; width:100%;"  id="qav_head" class="vbo_head">
+			<table style="height:100px; width:100%;" id="qav_head1" class="vbo_head1">
 			
-				
-					<tr >
-					<th><input type="radio" name="opt" id="show1" value="4">가능요일</th> 
-					<th><input type="radio" id="show2" name="opt" value="5">가능시간</th>
-					<th><input type="radio" id="show3" name="opt" value="6">지역</th>
-					<th><input type="radio" id="show4" name="opt" value="7">종교</th>
-					<th><input type="radio" id="show5" name="opt" value="8">성별</th>
-					<th><input type="radio" id="show6" name="opt" value="9">희망복지</th>
+					<tr class="inputGroup">
+					<th><input type="radio" id="show1"name="opt" value="4"><label for="show1">근무요일</label></th> 
+					<th><input type="radio" id="show2" name="opt" value="5"><label for="show2">근무시간</label></th>
+					<th><input type="radio" id="show3" name="opt" value="6"><label for="show3">지역</label></th>
+					<th><input type="radio" id="show4" name="opt" value="7"><label for="show4">종교</label></th>
+					<th><input type="radio" id="show5" name="opt" value="8"><label for="show5">성별</label></th>
+					<th><input type="radio" id="show6" name="opt" value="9"><label for="show6">희망복지</label></th>
 				</tr>
-				
-		
-
-		
-			
 				<tr class="page1" style="display: none;" >
-					<th colspan="6"><input type="radio" name="condition" value="월요일">월요일
-						<input type="radio" name="condition" value="화요일">화요일 <input
-						type="radio" name="condition" value="수요일">수요일 <input type="radio"
-						name="condition" value="목요일">목요일 <input type="radio" name="condition"
-						value="금요일">금요일 <input type="radio" name="condition" value="토요일">토요일
-						<input type="radio" name="condition" value="일요일">일요일
-						<input type="radio" name="condition" value="무관">무관</th>
+					<th colspan="6">
+					<label for="rdo-1" class="btn-radio">
+					<input type="radio" id="rdo-1" name="condition" value="월요일">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>월요일</span>
+					</label>
+					<label for="rdo-2" class="btn-radio">
+					<input type="radio"  id="rdo-2" name="condition" value="화요일">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+						<span>화요일</span> 
+					<label for="rdo-3" class="btn-radio">
+					<input type="radio" id="rdo-3" name="condition" value="수요일">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>수요일</span>
+					</label> 
+					<label for="rdo-4" class="btn-radio">
+					<input type="radio" id="rdo-4" name="condition" value="목요일"> 
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>목요일</span>
+					</label>
+					<label for="rdo-5" class="btn-radio">
+					<input type="radio" id="rdo-5" name="condition" value="금요일">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>금요일</span>
+					</label>	
+					<label for="rdo-6" class="btn-radio">
+					<input type="radio" id="rdo-6" name="condition" value="토요일">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>토요일</span>
+					</label>	
+					<label for="rdo-7" class="btn-radio">
+					<input type="radio" id="rdo-7" name="condition" value="일요일">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>일요일</span>
+					</label>
+					<label for="rdo-8" class="btn-radio">
+					<input type="radio" id="rdo-8" name="condition" value="무관">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>무관</span>
+					</label>
+				</th>
 				</tr>
 			
 		
 		
 			
 				<tr class="page2" style="display: none">
-					<th colspan="6"><input type="radio" name="condition" value="오전">오전 <input
-						type="radio" name="condition" value="오후">오후 <input type="radio" name="condition" value="종일">종일 <input
-						type="radio" name="condition" value="시간협의">시간협의</th>
+					<th colspan="6"><label for="rdo-9" class="btn-radio">
+					<input type="radio" id="rdo-9" name="condition"  value="오전">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>오전</span>
+					</label>
+					<label for="rdo-10" class="btn-radio">
+					<input type="radio" id="rdo-10" name="condition"  value="오후">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>오후</span>
+					</label>
+					<label for="rdo-11" class="btn-radio">
+					<input type="radio" id="rdo-11" name="condition"  value="종일">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>종일</span>
+					</label>
+					<label for="rdo-12" class="btn-radio">
+					<input type="radio" id="rdo-12" name="condition"  value="시간협의">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>시간협의</span>
+					</label></th>
 				</tr>
 			
 		
@@ -238,56 +268,304 @@ padding:10px;
 		
 		
 				<tr class="page3" style="display: none">
-					<th colspan="6"><input type="radio" name="condition" value="서울">서울 <input type="radio" name="condition" value="부산">부산
-						<input type="radio">대구 <input type="radio" name="condition" value="인천">인천 <input
-						type="radio" name="condition" value="광주">광주 <input type="radio" name="condition" value="대전">대전 <input
-						type="radio" name="condition" value="울산">울산 <input type="radio" name="condition" value="세종">세종 <input
-						type="radio" name="condition" value="경기">경기 <input type="radio" name="condition" value="강원">강원 <input
-						type="radio" name="condition" value="충북">충북 <input type="radio" name="condition" value="충남">충남 <input
-						type="radio" name="condition" value="전북">전북 <input type="radio" name="condition" value="전남">전남 <input
-						type="radio" name="condition" value="경북">경북 <input type="radio" name="condition" value="경님">경남 <input
-						type="radio" name="condition" value="제주">제주</th>
+					<th colspan="6"><label for="rdo-13" class="btn-radio">
+					<input type="radio" id="rdo-13" name="condition"  value="서울">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>서울</span>
+					</label>
+					<label for="rdo-14" class="btn-radio">
+					<input type="radio" id="rdo-14" name="condition"  value="부산">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>부산</span>
+					</label>
+					<label for="rdo-15" class="btn-radio">
+					<input type="radio" id="rdo-15" name="condition"  value="대구">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>대구</span>
+					</label>
+					<label for="rdo-16" class="btn-radio">
+					<input type="radio" id="rdo-16" name="condition"  value="인천">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>인천</span>
+					</label>
+					<label for="rdo-17" class="btn-radio">
+					<input type="radio" id="rdo-17" name="condition"  value="광주">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>광주</span>
+					</label>
+					<label for="rdo-18" class="btn-radio">
+					<input type="radio" id="rdo-18" name="condition"  value="광주">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>대전</span>
+					</label>
+					<label for="rdo-19" class="btn-radio">
+					<input type="radio" id="rdo-19" name="condition"  value="울산">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>울산</span>
+					</label>
+					<label for="rdo-20" class="btn-radio">
+					<input type="radio" id="rdo-20" name="condition"  value="세종">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>세종</span>
+					</label>
+					<label for="rdo-21" class="btn-radio">
+					<input type="radio" id="rdo-21" name="condition"  value="경기">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>경기</span>
+					</label>
+					<label for="rdo-22" class="btn-radio">
+					<input type="radio" id="rdo-22" name="condition"  value="강원">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>강원</span>
+					</label>
+					<label for="rdo-23" class="btn-radio">
+					<input type="radio" id="rdo-23" name="condition"  value="충북">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>충북</span>
+					</label>
+					<label for="rdo-24" class="btn-radio">
+					<input type="radio" id="rdo-24" name="condition"  value="충남">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>충남</span>
+					</label>
+					<label for="rdo-25" class="btn-radio">
+					<input type="radio" id="rdo-25" name="condition"  value="전북">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>전북</span>
+					</label>
+					<label for="rdo-26" class="btn-radio">
+					<input type="radio" id="rdo-26" name="condition"  value="전남">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>전남</span>
+					</label>
+					<label for="rdo-27" class="btn-radio">
+					<input type="radio" id="rdo-27" name="condition"  value="경북">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>경북</span>
+					</label>
+					<label for="rdo-28" class="btn-radio">
+					<input type="radio" id="rdo-28" name="condition"  value="경남">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>경남</span>
+					</label>
+					<label for="rdo-29" class="btn-radio">
+					<input type="radio" id="rdo-29" name="condition"  value="제주">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>제주</span>
+					</label></th>
 				</tr>
 			
 		
 		
 			
 				<tr class="page4" style="display: none">
-					<th colspan="6"><input type="radio" name="condition" value="기독교">기독교 <input type="radio" name="condition" value="이슬람교">이슬람교
-						<input type="radio" name="condition" value="유대교">유대교 <input type="radio" name="condition" value="불교">불교 <input
-						type="radio" name="condition" value="무교">무교</th>
+					<th colspan="6"><label for="rdo-30" class="btn-radio">
+					<input type="radio" id="rdo-30" name="condition"  value="기독교">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>기독교</span>
+					</label>
+					<label for="rdo-31" class="btn-radio">
+					<input type="radio" id="rdo-31" name="condition"  value="이슬람교">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>이슬람교</span>
+					</label>
+					<label for="rdo-32" class="btn-radio">
+					<input type="radio" id="rdo-32" name="condition"  value="유대교">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>유대교</span>
+					</label>
+					<label for="rdo-33" class="btn-radio">
+					<input type="radio" id="rdo-33" name="condition"  value="불교">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>불교</span>
+					</label>
+					<label for="rdo-34" class="btn-radio">
+					<input type="radio" id="rdo-34" name="condition"  value="무교">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>무교</span>
+					</label></th>
 				</tr>
 			
 		
 		
 			
 				<tr class="page5" style="display: none">
-					<th colspan="6"><input type="radio" name="condition" value="남성">남성 
-					<input type="radio" name="condition" value="여성">여성
-					<input type="radio" name="condition" value="무관">무관
-
-					</th>
+					<th colspan="6"><label for="rdo-35" class="btn-radio">
+					<input type="radio" id="rdo-35" name="condition"  value="남성">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>남성</span>
+					</label>
+					<label for="rdo-36" class="btn-radio">
+					<input type="radio" id="rdo-36" name="condition"  value="여성">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>여성</span>
+					</label>
+					<label for="rdo-37" class="btn-radio">
+					<input type="radio" id="rdo-37" name="condition"  value="무관">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>무관</span>
+					</label></th>
 				</tr>
 				<tr class="page6" style="display:none">
 			
-			<th colspan="6"><input type="radio" name="condition" id="wbhope" value="건강">건강
-			<input type="radio" name="condition"  value="고용">고용
-			<input type="radio" name="condition"  value="보육/교육">보육/교육
-			<input type="radio" name="condition"  value="생활/안전">생활/안전
-			<input type="radio" name="condition"  value="주거">주거
+			<th colspan="6"><label for="rdo-38" class="btn-radio">
+					<input type="radio" id="rdo-38" name="condition"  value="건강">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>건강</span>
+					</label>
+					<label for="rdo-39" class="btn-radio">
+					<input type="radio" id="rdo-39" name="condition"  value="고용">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>고용</span>
+					</label>
+					<label for="rdo-40" class="btn-radio">
+					<input type="radio" id="rdo-40" name="condition"  value="보육/교육">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>보육/교육</span>
+					</label>
+					<label for="rdo-41" class="btn-radio">
+					<input type="radio" id="rdo-41" name="condition"  value="생활/안전">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>생활/안전</span>
+					</label>
+					<label for="rdo-42" class="btn-radio">
+					<input type="radio" id="rdo-42" name="condition"  value="주거">
+					<svg width="20px" height="20px" viewBox="0 0 20 20">
+        			<circle cx="10" cy="10" r="9"></circle>
+        			<path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+        			<path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+      				</svg>
+					<span>주거</span>
+					</label>
 			</th>
 		</tr>
 			</table>
 			<br>
-			<input style="background:#5D5D5D; color:white; border:1; height:28px; line-height: 28px;"  type="submit" value="검색">
-			<input style="background:#5D5D5D; color:white; border:1; height:28px; line-height: 28px;" type="reset" value="초기화">
+			<input style="background:#5D5D5D; color:white; border:1px; height:28px; line-height: 28px; width: 100px; border-radius: 8px;"  type="submit" value="검색">
+			<input style="background:#5D5D5D; color:white; border:1px; height:28px; line-height: 28px; width: 100px; border-radius: 8px;" type="reset" value="초기화">
 		</form>
 
 	</div>
 	<br>
-	<table style="border-collapse:collapse; width:100%">
+	<table id="list">
 
-		<tr class="title" style="color:white;">
+		<tr>
 			<th width="8%"><div>번호</div></th>
 			<th width="30%"><div>제목</div></th>
 			<th width="19%"><div>작성자</div></th>
@@ -309,7 +587,7 @@ padding:10px;
 				<td>
 					<div>${b.wname}</div>
 				</td>
-				<td style="text-align:center">
+				<td>
 					<div>${b.wbdate}</div>
 				</td>
 				<td>
@@ -317,7 +595,7 @@ padding:10px;
 				</td>
 				
 				<td>
-					<input type="submit" class="processState probtn${b.wbnum}" value="진행" onclick="processMethod('${b.wbnum}', '${b.wid}');">
+					<input style="background:#5D5D5D; color:white; border:1; height:29px; line-height: 28px; width:54px;" type="submit" class="processState probtn${b.wbnum}" value="진행" onclick="processMethod('${b.wbnum}', '${b.wid}');">
 				</td>
 			
 			
@@ -326,11 +604,21 @@ padding:10px;
 			
 		</c:forEach>
 		</table>
-		<hr>
+
 		<br>
 		<form action="wboardWrite.wb" method="get" style="height:28px;">
+<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	<c:if test="${sessionScope.user == '복지자' || sessionScope.id == 'admin'}">
-	<input style="background:#5D5D5D; color:white; border:1; height:28px; line-height: 28px; float:right; margin-right:28px;" type="submit" value="참여 등록하기"/>
+	<center><input id="button" type="submit" value="복지자 등록하기"/></center>
 	</c:if>
 
 </form>
@@ -382,16 +670,33 @@ padding:10px;
 		<!-- 레코드가 없으면 -->
 		<c:if test="${listcount == 0}">
 			<tr>
-				<td colspan="3">복지자 참여</td>
-				<td style="text-align: right"><font size=2>등록된 글이 없습니다.
+				<td style="text-align: center"><font size=2>등록된 글이 없습니다.
 				</font></td>
 			</tr>
 		</c:if>
 		
 		
 	</table>
-	
-<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <%@ include file="../../footer/Footer.jsp" %>
 </body>
 </html>

@@ -14,9 +14,9 @@
 
 <style>
 	.container{margin: 30px auto;}
-	.detailtable{display:inline-block;width:1300px;margin:50px 0px 0px 0px;}
+	.detailtable{display:inline-block;width:1400px;margin:50px 0px 0px 0px;}
 	.detailbody{width:850px; float:left;}
-	.detailfoot{width:450px; float:right; margin:80px 0px 0px 0px;}
+	.detailfoot{width:500px; float:right; margin:80px 0px 0px 0px;}
 	.userinfo{margin:0px 30px 0px 0px;}
 	.userPost{clear:both;float:left;width:350px;}
 	.postbtn{color:white;background-color:#1e90ff;width:250px;height:72px;font-size:30px;padding:0px;

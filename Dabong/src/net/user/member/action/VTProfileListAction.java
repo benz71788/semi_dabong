@@ -21,6 +21,7 @@ public class VTProfileListAction implements Action{
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		String userId = request.getParameter("userId");
+		System.out.println(userId);
 		
 		VBoardDAO boardDAO = new VBoardDAO();
 		List<VBoardVO> list = new ArrayList<VBoardVO>();

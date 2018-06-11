@@ -21,6 +21,11 @@ WBREADCOUNT NUMBER NOT NULL,
 PRIMARY KEY(WBNUM)
 );
 
+select WID from WR_BOARD minus select WID from WR_MEMBER;
+
+select * from WR_BOARD where WID = 'apayo2';
+
+delete from WR_BOARD where WID = 'apayo2';
 
 alter table WR_BOARD add constraint welfareId foreign key(wid) references WR_MEMBER(wid) on delete cascade;
 

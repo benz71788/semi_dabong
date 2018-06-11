@@ -60,6 +60,7 @@
 		<tr>
 			<td>파일 첨부</td>
 			<td><input type="file" id="nefiles" name="nefiles"></td>
+			
 		</tr>
 	</table>
 	<br>
@@ -69,5 +70,7 @@
 				<button type=button class="nbutton2" id="list1">목록으로</button>
 		</div>
 	</form>
+	<br><br><br><br><br><br><br><br>
 </body>
+<%@ include file="../../footer/Footer.jsp" %>
 </html>

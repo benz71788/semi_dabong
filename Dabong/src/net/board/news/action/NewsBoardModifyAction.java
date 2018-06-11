@@ -16,7 +16,6 @@ public class NewsBoardModifyAction implements Action {
 		boolean result = false;
 		//전달받은 파라미터 num 변수에 저장합니다.
 		int num = Integer.parseInt(request.getParameter("num"));
-		System.out.println(num);
 		// 전달받은 파라미터 num 변수에 저장합니다.
 		NewsBoardDAO dao = new NewsBoardDAO();
 		NewsBoardVO boardData = new NewsBoardVO();
@@ -24,6 +23,7 @@ public class NewsBoardModifyAction implements Action {
 		boardData.setNenum(num);
 		boardData.setNesub(request.getParameter("nesub"));
 		boardData.setNecont(request.getParameter("necont"));
+		
 		boardData.setNefiles(request.getParameter("nefiles"));
 
 		result = dao.boardModify(boardData);
