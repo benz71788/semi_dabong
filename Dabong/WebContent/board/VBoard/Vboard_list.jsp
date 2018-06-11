@@ -85,6 +85,7 @@
 <body>
 	
 	<%@ include file="../../header/Header.jsp" %>
+	 <br>
 	<img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;봉사자참여
 	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
 		<strong style="font-size:40px; margin-left:9%">봉사자 참여 </strong>
@@ -446,8 +447,8 @@
 
     </table>
 			<br>
-			<input style="background:#5D5D5D; color:white; border:1px; height:28px; line-height: 50px; width: 100px; border-radius: 8px;"  type="submit" value="검색">
-			<input style="background:#5D5D5D; color:white; border:1px; height:28px; line-height: 50px; width: 100px; border-radius: 8px;" type="reset" value="초기화">
+			<input style="background:#5D5D5D; color:white; border:1px; height:28px; line-height: 28px; width: 100px; border-radius: 8px;"  type="submit" value="검색">
+			<input style="background:#5D5D5D; color:white; border:1px; height:28px; line-height: 28px; width: 100px; border-radius: 8px;" type="reset" value="초기화">
 		</form>
 
 	</div>

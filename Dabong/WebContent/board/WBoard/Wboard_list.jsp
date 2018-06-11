@@ -130,7 +130,7 @@
 			</table>
 		</form>
 	<br>
-		<button id="show" style="background:#5D5D5D; color:white; border:0; height:28px; line-height: 28px; width: 200px; border-radius: 8px; font-size: 15px;">상세검색</button>
+		<button id="show" style="background:#5D5D5D; color:white; border:0; height:45px; line-height: 28px; width: 200px; border-radius: 8px; font-size: 15px;">상세검색</button>
 		<br>
 		<br>
 
