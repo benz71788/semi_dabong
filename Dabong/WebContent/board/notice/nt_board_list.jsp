@@ -32,16 +32,26 @@
 </head>
 <body>
 <jsp:include page="../../header/Header.jsp" />
-<br>
 <img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;공지사항
-	<p style="text-align:left;" id="qav_head" class="vbo_head"><br>
+	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
 		<strong style="font-size:40px; margin-left:9%">공지사항 </strong>
 	<br><br><br>
 	<a style="margin-left:9%">봉사자, 복지자에게 신속히 알려드릴 필요성이 있는 자료를 제공해 드립니다.</a><br><br><br></p>
-
-      <br>
-      <br>
-      
+    <table style="width:100%; text-align:center;">
+		<tr>
+			<th colspan="4">
+			<select name="opt" id="select" size="1" style="height:38px; width:200px; font-size:12px; vertical-align: middle;" >
+					<option>선택</option>
+                	<option value="0">제목</option>
+                	<option value="1">내용</option>
+                	<option value="2">제목+내용</option>
+			</select>&nbsp;<input class="search__input" name="condition" type="text" placeholder="검색어를 입력하세요..">
+			<input style="background:#5D5D5D; color:white; border:1px; height:38px; line-height: 28px; vertical-align: middle;" 	type="submit" name="search"value="검색"/></th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<br>
     <table class="list">
       <tr >
         <th width="8%" ><div>번호</div></th>
@@ -111,11 +121,7 @@
   		<form action="NTBoardWrite.nt" method="get" style="height:28px;">
 		<br>
 		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-  <center><input type="submit" id="button" value="글쓰기"></center>
+  <center><input type="submit" id="button" value="글쓰기" style="border: 1px; border-radius: 8px; width: 200px;"></center>
 </form>
     <script type="text/javascript">
     
@@ -181,35 +187,20 @@
 		
     });
     </script>
-    <br>
-    <br>
-    <br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-    <table style="width:100%; text-align:center;">
-				<tr>
-					<th colspan="4"><select name="opt" id="select" size="1" style="height:34px; width:3; font-size:12px;" >
 
-							 <option>선택</option>
-                			 <option value="0">제목</option>
-                			 <option value="1">내용</option>
-                			 <option value="2">제목+내용</option>
-					</select>&nbsp;<input class="search__input" name="condition" type="text" placeholder="검색어를 입력하세요..">
-					<input style="background:#5D5D5D; color:white; border:1; height:35px; line-height: 28px;" 	type="submit" name="search"value="검색"/></th>
-
-				</tr>
-			</table>
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <%@ include file="../../footer/Footer.jsp" %>
 </body>
 </html>

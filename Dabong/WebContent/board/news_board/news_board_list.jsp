@@ -8,7 +8,25 @@
 <link href="./css/css_kh/list.css" rel="stylesheet" type="text/css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
-
+#qav_head {
+    background: url(./css/images/modal-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #dedede;
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+.vbo_head {
+    position: relative;
+    padding: 0 0 10px;
+    width: auto;
+    border-bottom: 1px solid #eceff3;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
 .img {
   position: relative;
   background-image: url(./css/images/modal-1.jpg);
@@ -43,6 +61,12 @@ h6 {
   margin-bottom: 17px;
   font-size: 17px;
 }
+
+.home-img {
+    width:16px; 
+    height:16px;
+    border-radius:0px;
+}
 </style>
 
 <script>
@@ -62,14 +86,18 @@ h6 {
 </head>
 
 <body>
+         <img style="margin-left:10%; margin-top:3%;" class="home-img" src="./images/home(dabong).png">&nbsp;>&nbsp;정보마당
+	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
+		<strong style="font-size:40px; margin-left:9%">정보 마당 </strong>
+	<br><br><br>
+	<a style="margin-left:9%">복지 관련 정보를 볼 수 있는 게시판입니다.</a><br><br><br></p>
          <form class="loadForm" method='get'>
-         <h1>정보마당</h1>
-         <span>
+         <span class="nbutton-span">
             <button id="1" name="load" class="nbutton1" value="album">앨범형</button>
             <button id="2" name="load" class="nbutton1" value="list">리스트형</button>
-            <%-- <c:if test="${sessionScope.id == 'admin' || sessionScope.id == 'qwer'}"> --%>
+            <c:if test="${sessionScope.id == 'admin'}">
              <button id="3" class="nbutton1">글쓰기</button>
-             <%-- </c:if> --%>
+             </c:if>
          </span>   
          </form><br>
 
@@ -87,7 +115,7 @@ h6 {
          <br><br>
          </form>
          
-   <table class="list">
+   <table class="list list-table">
          <tr>
             <th width="8%"><div>번호</div></th>
             <th width="50%"><div>제목</div></th>

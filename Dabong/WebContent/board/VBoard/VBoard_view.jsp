@@ -6,6 +6,27 @@
 <head>
  <link type="text/css" rel="stylesheet" href="./css/view.css" />
 <title>봉사자 참여 내용 확인하기</title>
+<style>
+#qav_head {
+    background: url(./css/images/modal-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #dedede;
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+.vbo_head {
+    position: relative;
+    padding: 0 0 10px;
+    width: auto;
+    border-bottom: 1px solid #eceff3;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
+</style>
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/match.js"></script>
 <script>
@@ -18,7 +39,7 @@
 </head>
 <body>
 <%@ include file="../../header/Header.jsp" %>
-	<img style="margin-left:10%; margin-top:3%;" src="./image/home(dabong).png">&nbsp;>&nbsp;봉사자참여
+	<img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;봉사자참여
 	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
 		<strong style="font-size:40px; margin-left:9%">봉사자 참여 </strong>
 	<br><br><br>
@@ -110,6 +131,7 @@
 		<br>
 		<br>
 		<br>
+		<%@ include file="../../footer/Footer.jsp" %>
 <br>
 <br>
 	

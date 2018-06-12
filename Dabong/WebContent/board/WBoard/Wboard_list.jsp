@@ -8,7 +8,7 @@
 <title>복지자 게시판</title>
 <link type="text/css" rel="stylesheet" href="./css/Wboard_list.css" />
 <link rel="stylesheet" href="./css/style(wboard).css">
-<link rel="stylesheet" href="./css.normalize.css">
+<link rel="stylesheet" href="./css/normalize.css">
 <script src="./js/jquery-3.3.1.js"></script>
 <script>
 	$(document).ready(function() {
@@ -90,7 +90,8 @@
 			url: 'wrProcessState.net',
 			success: function(result){
 				if(result == 1){
-					$(processState).css('background-color', 'grey');
+					$(processState).css('background-color', 'white');
+					$(processState).css('color', 'black');
 					$(processState).val('완료');
 				}
 				
@@ -103,16 +104,14 @@
 </head>
 <body>
 	<%@ include file="../../header/Header.jsp" %>
-
-	<br>
-	<img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;봉사자참여
-	<p style="text-align:left;" id="qav_head" class="vbo_head"><br>
+	<img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;복지자 참여
+	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
 		<strong style="font-size:40px; margin-left:9%">복지자 참여 </strong>
 	<br><br><br>
 	<a style="margin-left:9%">복지자가 직접 등록한 복지서비스 게시판 입니다.</a><br><br><br></p>
 	<div id="searchForm" style="text-align: center">
 		<form action="wboardList.wb" method="get">
-			<table style="width:100%; text-align:center;">
+			<table class="wboard-table" style="width:100%; text-align:center;">
 				<tr>
 					<th colspan="4"><select name="opt" size="1" style="height:36px; width:3; font-size:12px; vertical-align: middle;" >
 
@@ -122,7 +121,7 @@
 							<option value="3">글쓴이</option>
 
 					</select>&nbsp;<input class="search__input" name="condition" type="text" placeholder="검색어를 입력하세요..">
-					<input style="background:#5D5D5D; color:white; border:1; height:38px; line-height: 28px; vertical-align: middle;" 	type="submit" value="검색"/></th>
+					<input style="background:#5D5D5D; color:white; border:1px; height:37px; line-height: 28px; vertical-align: middle;" 	type="submit" value="검색"/></th>
 
 				</tr>
 
@@ -135,7 +134,7 @@
 		<br>
 
 		<form  action="wboardList.wb" method="get" class="page" style="display: none">
-			<table style="height:100px; width:100%;" id="qav_head1" class="vbo_head1">
+			<table class="wboard-table" style="height:100px; width:100%;" id="qav_head1" class="vbo_head1">
 			
 					<tr class="inputGroup">
 					<th><input type="radio" id="show1"name="opt" value="4"><label for="show1">근무요일</label></th> 
@@ -563,7 +562,7 @@
 
 	</div>
 	<br>
-	<table id="list">
+	<table class="wboard-table" id="list">
 
 		<tr>
 			<th width="8%"><div>번호</div></th>
@@ -595,7 +594,7 @@
 				</td>
 				
 				<td>
-					<input style="background:#5D5D5D; color:white; border:1; height:29px; line-height: 28px; width:54px;" type="submit" class="processState probtn${b.wbnum}" value="진행" onclick="processMethod('${b.wbnum}', '${b.wid}');">
+					<input style="background:#5D5D5D; color:white; border:1; board-radius:10px; height:29px; line-height: 28px; width:54px;" type="submit" class="processState probtn${b.wbnum}" value="진행" onclick="processMethod('${b.wbnum}', '${b.wid}');">
 				</td>
 			
 			
@@ -614,16 +613,13 @@
 		<br>
 		<br>
 		<br>
-		<br>
-		<br>
-		<br>
 	<c:if test="${sessionScope.user == '복지자' || sessionScope.id == 'admin'}">
-	<center><input id="button" type="submit" value="복지자 등록하기"/></center>
+	<center><input id="button" type="submit" value="복지자 등록하기" style="border: 1px; border-radius: 8px; width: 200px;"/></center>
 	</c:if>
 
 </form>
 		<br>
-		<table>
+		<table class="wboard-table">
 		<tr  class="h30 lime center btn" style="color:#6799FF;">
 		<c:if test="${null eq opt}">
 		

@@ -39,8 +39,8 @@
 		<table style="margin:auto;">
 			<tr>
 			<th>
-			<input style="background:#5D5D5D; color:white; border:0; height:28px; line-height: 28px; border-radius:3px;"type=submit value="등록">
-			<input style="background:#5D5D5D; color:white; border:0; height:28px; line-height: 28px; border-radius:3px;"type=reset value="취소" onClick="history.go(-1)">
+			<input style="background:#5D5D5D; color:white; border:0; height:30px; line-height: 28px; width: 100px; border-radius:3px;"type=submit value="등록">
+			<input style="background:#5D5D5D; color:white; border:0; height:30px; line-height: 28px; width: 100px; border-radius:3px;"type=reset value="취소" onClick="history.go(-1)">
 			</th>
 			</tr>
 	</table>

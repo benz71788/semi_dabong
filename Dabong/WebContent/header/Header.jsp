@@ -780,6 +780,10 @@ hr {
 			messageBtn(this, messageData, messageUrl);
 		});
 		
+		$('.scrollBlind').on('click', '.approvedbtn', function(){
+			return false;
+		});
+		
 		$('.scrollBlind').on('click', '.rejectbtn', function(){
 			messageData = $(this).val();
 			messageBtn(this, messageData, messageUrl);

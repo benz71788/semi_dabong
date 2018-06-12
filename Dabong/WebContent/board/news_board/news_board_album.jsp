@@ -7,6 +7,32 @@
 <title>정보마당 앨범형</title>
 <script src="./js/jquery-3.3.1.js"></script>
 <link href="./css/album.css" rel="stylesheet" type="text/css">
+<style>
+#qav_head {
+    background: url(./css/images/modal-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #dedede;
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+.vbo_head {
+    position: relative;
+    padding: 0 0 10px;
+    width: auto;
+    border-bottom: 1px solid #eceff3;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
+.home-img {
+    width:16px; 
+    height:16px;
+    border-radius:0px;
+}
+</style>
 <script>   //버튼클릭 스크립트
 $(document).ready(function(){
    $('#1').on('click', function(){
@@ -75,7 +101,7 @@ $( document ).ready( function() {
             });
             page = page + 1;
          }
-      }, 1000);   //1초 뒤
+      }, 2000);   //1초 뒤
    });
 });
 </script>
@@ -83,9 +109,13 @@ $( document ).ready( function() {
 
 <%@ include file="../../header/Header.jsp" %>
 </head>
-<body>   
-      <h1>정보마당</h1>
-      <span>
+<body>
+	<img style="margin-left:10%; margin-top:3%;" class="home-img" src="./images/home(dabong).png">&nbsp;>&nbsp;정보마당
+	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
+		<strong style="font-size:40px; margin-left:9%">정보 마당 </strong>
+	<br><br><br>
+	<a style="margin-left:9%">복지 관련 정보를 볼 수 있는 게시판입니다.</a><br><br><br></p>   
+      <span class="nbutton-span">
       <button id="1" class="nbutton1">앨범형</button>
       <button id="2" class="nbutton1">리스트형</button>
       </span>
@@ -95,7 +125,7 @@ $( document ).ready( function() {
       </a>
       </c:if>
    <%--검색 --%>   
-   <span class="pageNum" style="line-height:60px"><font size=4>총 게시물 수 <b style="color:#1E90FF"> ${listcount}</b></font></span>
+   <span class="pageNum" style="line-height:60px"><font size="4" style="margin-left:9.5%">총 게시물 수 <b style="color:#1E90FF"> ${listcount}</b></font></span>
       <form action="news_board_album.news" method="get" id="searchForm">
             <select name="opt">
                <option value="0">선택</option>
@@ -108,7 +138,7 @@ $( document ).ready( function() {
       </form>
       <br>
       
-   <table class="album">
+   <table class="album album-table">
       <c:set var="num" value="${listcount-(page-1) * 12}" />
       <%--4개 씩 --%>
       <c:set var="i" value="0" />
@@ -118,7 +148,7 @@ $( document ).ready( function() {
       <c:if test="${i % j == 0}">
          <tr>
       </c:if>
-            <td style="text-align:center">
+            <td class="news-td" style="text-align:center">
                <c:set var="num" value="${num-1}" /> <%-- num = num - 1 --%>
                <%-- 첨부파일 썸네일 --%>
                   <div style="text-align:center">
@@ -164,9 +194,12 @@ $( document ).ready( function() {
 		</c:if>
 	</table>
 	<button onclick="topFunction()" class='top' id="myBtn" title="Go to top">Top</button>
-
+    <br>
 	<br>
-
+    <br>
+    <br>
+	<br>
+    <br>
 </body>
 <%@ include file="../../footer/Footer.jsp" %>
 </html>

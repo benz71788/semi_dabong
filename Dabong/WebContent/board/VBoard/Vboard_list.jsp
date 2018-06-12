@@ -7,7 +7,7 @@
 <title>봉사자 게시판</title>
 <link type="text/css" rel="stylesheet" href="./css/Vboard_list.css" />
 <link rel="stylesheet" href="./css/style(vboard).css">
-<link rel="stylesheet" href="./css.normalize.css">
+<link rel="stylesheet" href="./css/normalize.css">
 <script src="./js/jquery-3.3.1.js"></script>
 <script>
 	$(document).ready(function() {
@@ -85,15 +85,14 @@
 <body>
 	
 	<%@ include file="../../header/Header.jsp" %>
-	 <br>
-	<img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;봉사자참여
+	<img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;봉사자 참여
 	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
 		<strong style="font-size:40px; margin-left:9%">봉사자 참여 </strong>
 	<br><br><br>
 	<a style="margin-left:9%">봉사자가 직접 등록한 복지서비스 게시판 입니다.</a><br><br><br></p>
 		<div id="searchForm" style="text-align: center">
 		<form action="vboardList.vb" method="get">
-			<table style="width:100%; text-align:center;">
+			<table class="vboard-table" style="width:100%; text-align:center;">
 				<tr>
 					<th colspan="4"><select name="opt" size="1" style="height:36px; width:3; font-size:12px; vertical-align: middle;" >
 
@@ -117,7 +116,7 @@
 		<br>
 
 		<form  action="vboardList.vb" method="get" class="page" style="display: none">
-			<table style="height:100px; width:100%;" id="qav_head1" class="vbo_head1">
+			<table class="vboard-table" style="height:100px; width:100%;" id="qav_head1" class="vbo_head1">
 
 					<tr class="inputGroup">
 					<th><input type="radio" id="show1"name="opt" value="4"><label for="show1">근무요일</label></th>
@@ -453,7 +452,7 @@
 
 	</div>
 	<br>
-	<table id="list">
+	<table class="vboard-table" id="list">
 
 		<tr>
 			<th width="6%"><div>번호</div></th>
@@ -485,7 +484,7 @@
 				</td>
 
 				<td style="text-align:center">
-					<input type="submit" class="processState probtn${b.vbnum}" value="진행" style="background:#5D5D5D; color:white; border:1; height:29px; line-height: 28px; width:54px;" onclick="processMethod('${b.vbnum}', '${b.vid}');">
+					<input type="submit" class="processState probtn${b.vbnum}" value="진행" style="background:#5D5D5D; board-radius:10px; color:white; border:1; height:29px; line-height: 28px; width:54px;" onclick="processMethod('${b.vbnum}', '${b.vid}');">
 				</td>
 			</tr>
 		</c:forEach>
@@ -498,13 +497,13 @@
 		<br>
 		<br>
 <c:if test="${sessionScope.user == '봉사자' || sessionScope.id == 'admin'}">
-    <center><input id="button" type="submit" value="봉사자 등록하기"/></center>
+    <center><input id="button" type="submit" value="봉사자 등록하기" style="border: 1px; border-radius: 8px; width: 200px;"/></center>
     </c:if>
 
 
 </form>
 		<br>
-		<table>
+		<table class="vboard-table">
 		<tr  class="h30 lime center btn" style="color:#6799FF;">
 		<c:if test="${null eq opt}">
 		

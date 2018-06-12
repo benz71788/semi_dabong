@@ -40,7 +40,7 @@ a{text-decoration:none}
 	border-top: 3px solid #1E90FF;
 	text-align: center;
 	margin: 0 auto;
-	width : 70%;
+	width : 81%;
 }
 #button{
 	margin:auto;
@@ -71,14 +71,13 @@ a{text-decoration:none}
 }
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
 .search__input {
-        width:50%;
-        height:32px;
-
+        width: 68%;
+        height: 34px;
+        vertical-align: middle;
         background-color: transparent;
         transition: transform 250ms ease-in-out;
         font-size: 14px;
         line-height: 18px;
-        
         color: #575756;
         background-color: transparent;
         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg);

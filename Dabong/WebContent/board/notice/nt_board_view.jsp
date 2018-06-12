@@ -34,7 +34,7 @@
 		<c:set var="bd" value="${boardDetail}"/>
 		<br>
 <img style="margin-left:10%; margin-top:3%;" src="./images/home(dabong).png">&nbsp;>&nbsp;공지사항
-	<p style="text-align:left;" id="qav_head" class="vbo_head"><br>
+	<p style="text-align:left;" id="qav_head" class="vbo_head"><br><br>
 		<strong style="font-size:40px; margin-left:9%">공지사항 </strong>
 	<br><br><br>
 	<a style="margin-left:9%">봉사자, 복지자에게 신속히 알려드릴 필요성이 있는 자료를 제공해 드립니다.</a><br><br><br></p>

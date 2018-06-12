@@ -9,6 +9,27 @@
 <link type="text/css" rel="stylesheet" href="./css/view.css" />
 <script src="./js/jquery-3.3.1.js"></script>
 <script src="./js/match.js"></script>
+<style>
+#qav_head {
+    background: url(./css/images/modal-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #dedede;
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+.vbo_head {
+    position: relative;
+    padding: 0 0 10px;
+    width: auto;
+    border-bottom: 1px solid #eceff3;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
+</style>
 <script>
 	
 	$(document).ready(function(){

@@ -137,8 +137,8 @@
 	<table style="margin:auto;">	
 				<tr>
 				<th>
-				<input type="submit"  style="background:#5D5D5D; color:white; border:0; height:28px; line-height: 28px; border-radius:3px;" value="등록">
-				<input type="reset"	 style="background:#5D5D5D; color:white; border:0; height:28px; line-height: 28px; border-radius:3px;"value="취소"	onClick="history.go(-1)">
+				<input type="submit"  style="background:#5D5D5D; color:white; border:0; height:30px; width: 100px; line-height: 28px; border-radius:3px;" value="등록">
+				<input type="reset"	 style="background:#5D5D5D; color:white; border:0; height:30px; width: 100px; line-height: 28px; border-radius:3px;"value="취소"	onClick="history.go(-1)">
 				</th>
 				</tr>
 				</table>
