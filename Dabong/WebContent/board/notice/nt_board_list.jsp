@@ -46,7 +46,7 @@
                 	<option value="1">내용</option>
                 	<option value="2">제목+내용</option>
 			</select>&nbsp;<input class="search__input" name="condition" type="text" placeholder="검색어를 입력하세요..">
-			<input style="background:#5D5D5D; color:white; border:1px; height:38px; line-height: 28px; vertical-align: middle;" 	type="submit" name="search"value="검색"/></th>
+			<input style="background:#5D5D5D; color:white; border:1px; height:38px; line-height: 28px; vertical-align: middle;" type="submit" name="search"value="검색"/></th>
 				</tr>
 			</table>
 			<br>
@@ -121,7 +121,9 @@
   		<form action="NTBoardWrite.nt" method="get" style="height:28px;">
 		<br>
 		<br>
+		<c:if test="${sessionScope.id == 'admin'}">
   <center><input type="submit" id="button" value="글쓰기" style="border: 1px; border-radius: 8px; width: 200px;"></center>
+  </c:if>
 </form>
     <script type="text/javascript">
     

@@ -119,7 +119,7 @@ $( document ).ready( function() {
       <button id="1" class="nbutton1">앨범형</button>
       <button id="2" class="nbutton1">리스트형</button>
       </span>
-      <c:if test="${sessionScope.id == 'admin' || sessionScope.id == 'qwer'}">
+      <c:if test="${sessionScope.id == 'admin'}">
       <a href="./news_board_write.news" style="text-align: center" id="write">
       <button class="nbutton3">글쓰기</button><br>
       </a>
